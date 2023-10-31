@@ -11,6 +11,6 @@ class Car extends Model
 
     public function review()
     {
-        return $this->belongsTo(Review::class)
+        return $this->belongsTo(Review::class);
     }
 }
