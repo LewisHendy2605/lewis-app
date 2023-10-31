@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+
+    public function car()
+    {
+        return $this->hasOne(Car::class);
+    }
+
+
 }
