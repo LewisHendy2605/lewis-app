@@ -18,5 +18,12 @@ class AnimalTableSeeder extends Seeder
         $a->name = "Not G";
         $a->weight = 400.0;
         $a->save();
+
+
+        Animal::factory()->count(50)->create();
+
+
+
+
     }
 }
