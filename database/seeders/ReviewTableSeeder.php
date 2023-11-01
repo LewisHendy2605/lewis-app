@@ -14,42 +14,14 @@ class ReviewTableSeeder extends Seeder
     public function run(): void
     {
         //
-        //Review::factory()->count(50)->create();
+        //Review::factory()->count(70)->create();
 
-        $a = new Review;
-        $a->user_id = 1;
-        $a->car_id = 1;
-        $a->stars = 5;
-        $a->comment = "Very nice";
-        $a->save();
-
-        $a = new Review;
-        $a->user_id = 2;
-        $a->car_id = 2;
-        $a->stars = 5;
-        $a->comment = "Very nice";
-        $a->save();
-
-        $a = new Review;
-        $a->user_id = 3;
-        $a->car_id = 3;
-        $a->stars = 5;
-        $a->comment = "Very nice";
-        $a->save();
-
-        $a = new Review;
-        $a->user_id = 4;
-        $a->car_id = 4;
-        $a->stars = 5;
-        $a->comment = "Very nice";
-        $a->save();
-
-        $a = new Review;
-        $a->user_id = 1;
-        $a->car_id = 2;
-        $a->stars = 5;
-        $a->comment = "Very nice";
-        $a->save();
+       // $a = new Review;
+       // $a->user_id = 1;
+       // $a->car_id = 1;
+       // $a->stars = 5;
+       // $a->comment = "Very nice";
+        //$a->save();
 
     }
 }
