@@ -18,6 +18,9 @@ class CarFactory extends Factory
     {
         return [
             //
+            'manufacture' => fake()->name(),
+            'model' => fake()->name(),
+            'year' => fake()->numberBetween(1990,2023)
         ];
     }
 }

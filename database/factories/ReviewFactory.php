@@ -18,6 +18,9 @@ class ReviewFactory extends Factory
     {
         return [
             //
+            //'user_id' =>
+            'stars' => fake()->numberBetween(0,5),
+            'comment' => fake()->text()
         ];
     }
 }
