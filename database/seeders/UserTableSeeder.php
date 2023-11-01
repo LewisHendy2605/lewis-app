@@ -16,5 +16,7 @@ class UserTableSeeder extends Seeder
     {
         //
         //User::factory()->count(50)->create();
+        User::factory(10)->has(Review::factory()->count(5))
+        ->create();
     }
 }

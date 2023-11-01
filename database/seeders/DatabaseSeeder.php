@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Car;
+use App\Models\Comment;
 
 
 class DatabaseSeeder extends Seeder
@@ -25,13 +26,13 @@ class DatabaseSeeder extends Seeder
 
 
         $cars = Car::factory()->count(50)->create();
-
     
-        User::factory()->has(Review::factory()
-        ->state(function (array $attributes, Car $cars) {
-            return ['car_id' => $cars->id];
-        }))
+
+        $user = User::factory()  
+        ->count(3)  
+        ->has(Review::factory()->count(5))
         ->create();
+        
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
