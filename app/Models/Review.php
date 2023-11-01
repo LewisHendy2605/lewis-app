@@ -19,5 +19,10 @@ class Review extends Model
         return $this->hasOne(Car::class);
     }
 
+    public function comments()
+     {
+        return $this->hasMany(Comment::class);
+     }
+
 
 }
