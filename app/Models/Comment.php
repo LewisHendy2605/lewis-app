@@ -14,7 +14,7 @@ class Comment extends Model
         return $this->hasOne(User::class);
     }
 
-    public function user()
+    public function rewiew()
     {
         return $this->hasOne(Review::class);
     }
