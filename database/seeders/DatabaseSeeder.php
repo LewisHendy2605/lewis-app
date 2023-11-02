@@ -29,7 +29,8 @@ class DatabaseSeeder extends Seeder
     
         $user = User::factory()  
         ->count(10)  
-        ->has(Review::factory()->count(3))
+        ->has(Review::factory()->count(3)
+        ->has(Comment::factory()->count(5)))
         ->create();
 
 

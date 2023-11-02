@@ -18,6 +18,7 @@ class CommentFactory extends Factory
     {
         return [
             //
+            'user_id' => fake()->numberBetween(0,50),
             'comment' => fake()->text()
         ];
     }

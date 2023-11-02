@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('car_id')->nullable()->unsigned();
             $table->integer('stars');
             $table->string('comment');
+            $table->integer('comment_id')->nullable()->unsigned();
             $table->timestamps();
             $table->foreign('user_id')->references('id')
             ->on('users')->onDelete('cascade')->onUpdate('cascade');
