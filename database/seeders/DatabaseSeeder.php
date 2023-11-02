@@ -27,13 +27,18 @@ class DatabaseSeeder extends Seeder
 
         $cars = Car::factory()->count(50)->create();
         $users = User::factory()->count(50)->create();
+        //$reviews = null;
 
+
+
+        for ($x = 0; $x <= 10; $x++) {
+            $reviews = Review::factory()->for($users->random())
+            ->for($cars->random())
+            ->has(Comment::factory()->count(2))
+            ->create();
+        }
+       
         
-        $reviews = Review::factory()->for($users->random())
-        ->for($cars->random())->create();
-        
-        
-        //$comments = Comment::factory(30)->for($reviews->random())->create();
 
     
         //$users = User::factory()  
