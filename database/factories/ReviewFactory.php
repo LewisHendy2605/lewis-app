@@ -25,7 +25,7 @@ class ReviewFactory extends Factory
             //'user_id' => randomElement($users_id),
             //'user_id' => randomElement($cars_id),
             
-            'car_id' => fake()->numberBetween(0,50),
+            //'car_id' => fake()->numberBetween(0,50),
             'stars' => fake()->numberBetween(0,5),
             'comment' => fake()->text()
         ];

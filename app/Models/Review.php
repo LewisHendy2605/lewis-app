@@ -14,6 +14,11 @@ class Review extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

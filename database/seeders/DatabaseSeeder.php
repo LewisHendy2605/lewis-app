@@ -26,14 +26,23 @@ class DatabaseSeeder extends Seeder
 
 
         $cars = Car::factory()->count(50)->create();
+        $users = User::factory()->count(50)->create();
+
+        
+        $reviews = Review::factory()->for($users->random())
+        ->for($cars->random())->create();
+        
+        
+        //$comments = Comment::factory(30)->for($reviews->random())->create();
+
     
-        $user = User::factory()  
-        ->count(10)  
-        ->has(Review::factory()->count(3)
-        ->has(Comment::factory()->count(5)))
-        ->create();
+        //$users = User::factory()  
+        //->count(10)  
+        //->has(Review::factory()->count(3)
+        //->has(Comment::factory()->count(5)))
+        //->create();
 
-
+       
         
 
         // \App\Models\User::factory()->create([
