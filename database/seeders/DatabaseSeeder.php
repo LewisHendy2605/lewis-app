@@ -27,7 +27,6 @@ class DatabaseSeeder extends Seeder
 
         $cars = Car::factory()->count(50)->create();
         $users = User::factory()->count(50)->create();
-        //$reviews = null;
         $num = count($users);
 
 
@@ -48,8 +47,6 @@ class DatabaseSeeder extends Seeder
         //->has(Comment::factory()->count(5)))
         //->create();
 
-       
-        
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
