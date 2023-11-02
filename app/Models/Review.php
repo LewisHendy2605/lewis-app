@@ -23,10 +23,4 @@ class Review extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
-
-
-
-
-
 }

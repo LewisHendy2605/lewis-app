@@ -18,13 +18,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        //$this->call(AnimalTableSeeder::class);
-        //$this->call(UserTableSeeder::class);
-        //$this->call(CarTableSeeder::class);
-        //$this->call(ReviewTableSeeder::class);
-        //$this->call(CommentTableSeeder::class);
-
-
         $cars = Car::factory()->count(50)->create();
         $users = User::factory()->count(50)->create();
         $num = count($users);
@@ -40,6 +33,15 @@ class DatabaseSeeder extends Seeder
        
         
 
+
+
+        
+
+        //$this->call(AnimalTableSeeder::class);
+        //$this->call(UserTableSeeder::class);
+        //$this->call(CarTableSeeder::class);
+        //$this->call(ReviewTableSeeder::class);
+        //$this->call(CommentTableSeeder::class);
     
         //$users = User::factory()  
         //->count(10)  
