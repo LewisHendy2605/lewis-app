@@ -16,7 +16,12 @@ class UserTableSeeder extends Seeder
     {
         //
         //User::factory()->count(50)->create();
-        User::factory(10)->has(Review::factory()->count(5))
-        ->create();
+        $t = new User;
+        $t->name = "Toyota";
+        $t->email = "GT86";
+        $t->email_verified_at = 2016;
+        $t->password = 2016;
+        $t->rememberToken = 2016;
+        $t->save();
     }
 }
