@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/reviews/{review?}', function ($review = null) {
+    return view('reviews', ['review'=>$review]);
+});
+
+
 Route::get('/', function () {
     return view('test', ['name' => 'Brian']);
     #return view('welcome');
