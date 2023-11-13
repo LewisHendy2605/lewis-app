@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Car;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +14,7 @@ use App\Models\Car;
 */
 
 
-Route::get('/cars', [CarController:class, 'index']);
+Route::get('/cars', [CarController::class, 'index']);
 
 
 Route::get('/review/{review?}', function ($review = null) {
