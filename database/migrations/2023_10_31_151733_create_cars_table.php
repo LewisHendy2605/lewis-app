@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('manufacture');
             $table->string('model');
-            $table->integer('year');
+            $table->string('year');
             $table->timestamps();
         });
     }
