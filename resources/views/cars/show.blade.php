@@ -3,7 +3,10 @@
 @section('title', 'Car')
 
 @section('content')
-    <p> CarID: {{$car->id}} </p>
-    <p> Car Model: {{$car->model}} </p>
-    <p> Car Manufacture: {{$car->manufacture}} </p>
+<ul> 
+    <li>Car ID: {{$car->id}}</li> 
+    <li>Car Model: {{$car->model}}</li>   
+    <li>Car Manufacture: {{$car->manufacture}}</li>
+    <li>Car Year: {{$car->year}}</li>
+</ul>
 @endsection
