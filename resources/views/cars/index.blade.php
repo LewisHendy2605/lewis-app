@@ -11,6 +11,7 @@
         <li>Car Model: {{$car->model}}</li>   
         <li>Car Manufacture: {{$car->manufacture}}</li>
         <li>Car Year: {{$car->year}}</li>
+        <p></p>
         @endforeach
     </ul>
 @endsection

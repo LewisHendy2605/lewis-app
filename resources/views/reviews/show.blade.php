@@ -9,5 +9,6 @@
     <li>Stars: {{$review->stars}}</li>   
     <li>Review: {{$review->comment}}</li>
     <li>CarID: {{$review->car_id}}</li>
+    <p></p>
 </ul>
 @endsection
