@@ -6,11 +6,9 @@
     <p> Cars </p>
     <ul> 
         @foreach ($cars as $car)
-        <li>Car ID: {{$car->id}},    
-            Car Model: {{$car->model}},    
-            Car Manufacture: {{$car->manufacture}}
-        </li>
-
+        <li>Car ID: {{$car->id}}</li> 
+        <li>Car Model: {{$car->model}}</li>   
+        <li>Car Manufacture: {{$car->manufacture}}</li>
         @endforeach
     </ul>
 @endsection
