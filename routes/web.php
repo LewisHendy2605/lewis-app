@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\ReviewController;
 
 
 /*
@@ -23,9 +24,10 @@ Route::get('/cars/{id}', [CarController::class, 'show'])
 ->name('cars.show');
 
 
-Route::get('/review/{review?}', function ($review = null) {
-    return view('reviews', ['review'=>$review]);
-});
+Route::get('/reviews', [ReviewController::class, 'index']);
+
+Route::get('/reviews/{id}', [ReviewController::class, 'show'])
+->name('reviews.show');
 
 
 Route::get('/', function () {

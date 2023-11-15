@@ -17,9 +17,15 @@ class ReviewFactory extends Factory
      */
     public function definition(): array
     {
+
+        $comments = ["Best Car Ive bought", "Reliable", "Great Handling"
+        , "Luxury interior and really fast", "woarse then a fiat 500",
+         "Just like the fiat 500 this cars engine sucks all the joy from my day "];
+
+
         return [
             'stars' => fake()->numberBetween(0,5),
-            'comment' => fake()->text()
+            'comment' => $this->faker->randomElement($comments)
         ];
     }
 }

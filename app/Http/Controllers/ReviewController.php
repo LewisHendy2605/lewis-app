@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -12,6 +13,8 @@ class ReviewController extends Controller
     public function index()
     {
         //
+        $reviews = Review::all();
+        return view('reviews.index', ['reviews' => $reviews]);
     }
 
     /**
@@ -36,6 +39,8 @@ class ReviewController extends Controller
     public function show(string $id)
     {
         //
+        $review = Review::findOrFail($id);
+        return view('reviews.show', ['review' => $review]);
     }
 
     /**
