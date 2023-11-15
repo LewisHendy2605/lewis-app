@@ -1,13 +1,9 @@
 @extends('layouts.appp')
 
-@section('title', 'Cars')
+@section('title', 'Car')
 
 @section('content')
-    <p> Cars </p>
-    <ul> 
-        @foreach ($cars as $car)
-        <li>{{$car->manufacture, $car->model}}</li>
-
-        @endforeach
-    </ul>
+    <p> CarID: {{$car->id}} </p>
+    <p> Car Model: {{$car->model}} </p>
+    <p> Car Manufacture: {{$car->manufacture}} </p>
 @endsection

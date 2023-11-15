@@ -6,7 +6,7 @@
     <p> Cars </p>
     <ul> 
         @foreach ($cars as $car)
-        <li>{{$car->manufacture, $car->model}}</li>
+        <li>{{$car->model}}</li>
 
         @endforeach
     </ul>

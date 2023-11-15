@@ -19,6 +19,8 @@ use App\Http\Controllers\CarController;
 
 Route::get('/cars', [CarController::class, 'index']);
 
+Route::get('/cars/{id}', [CarController::class, 'show']);
+
 
 Route::get('/review/{review?}', function ($review = null) {
     return view('reviews', ['review'=>$review]);
