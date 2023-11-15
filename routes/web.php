@@ -19,7 +19,8 @@ use App\Http\Controllers\CarController;
 
 Route::get('/cars', [CarController::class, 'index']);
 
-Route::get('/cars/{id}', [CarController::class, 'show']);
+Route::get('/cars/{id}', [CarController::class, 'show'])
+->name('cars.show');
 
 
 Route::get('/review/{review?}', function ($review = null) {
