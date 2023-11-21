@@ -17,10 +17,15 @@ use App\Http\Controllers\ReviewController;
 */
 
 
-Route::get('/cars', [CarController::class, 'index']);
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+
+Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+
+Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
 
 Route::get('/cars/{id}', [CarController::class, 'show'])
 ->name('cars.show');
+
 
 
 Route::get('/reviews', [ReviewController::class, 'index']);
@@ -28,10 +33,13 @@ Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/reviews/{id}', [ReviewController::class, 'show'])
 ->name('reviews.show');
 
+
+
 Route::get('/users', [ProfileController::class, 'index']);
 
 Route::get('/users/{id}', [ProfileController::class, 'show'])
 ->name('users.show');
+
 
 
 Route::get('/', function () {
