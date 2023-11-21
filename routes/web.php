@@ -52,7 +52,7 @@ Route::get('/users/{id}', [ProfileController::class, 'show'])
 
 Route::get('/', function () {
     #return view('test', ['name' => 'Brian']);
-    return view('welcome');
+    return view('homepage');
 
 });
 
