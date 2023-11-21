@@ -12,7 +12,6 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
         $reviews = Review::all();
         return view('reviews.index', ['reviews' => $reviews]);
     }
@@ -22,7 +21,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        return view('reviews.create');
     }
 
     /**
@@ -30,7 +29,15 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'stars' => 'required|integer|max:5|min:1',
+            'comment' => 'required|max:255',
+            'car_id' => 'required|integer|max:60|min:1',
+            'user_id' => 'required|integer|max:50|min:1'
+
+        ]);
+
+        dd($validatedData);
     }
 
     /**

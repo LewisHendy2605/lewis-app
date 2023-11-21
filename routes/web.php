@@ -28,7 +28,11 @@ Route::get('/cars/{id}', [CarController::class, 'show'])
 
 
 
-Route::get('/reviews', [ReviewController::class, 'index']);
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+
+Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
+
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 Route::get('/reviews/{id}', [ReviewController::class, 'show'])
 ->name('reviews.show');
