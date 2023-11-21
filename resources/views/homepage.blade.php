@@ -1,6 +1,6 @@
 @extends('layouts.appp')
 
-@section('title', 'Home')
+@section('title', 'Home Page')
 
 @section('content')
     <p><a href="{{ route('cars.index')}}">Cars</a></p>
