@@ -39,7 +39,11 @@ Route::get('/reviews/{id}', [ReviewController::class, 'show'])
 
 
 
-Route::get('/users', [ProfileController::class, 'index']);
+Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
+
+Route::get('/users/create', [ProfileController::class, 'create'])->name('users.create');
+
+Route::post('/users', [ProfileController::class, 'store'])->name('users.store');
 
 Route::get('/users/{id}', [ProfileController::class, 'show'])
 ->name('users.show');

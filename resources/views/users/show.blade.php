@@ -5,6 +5,8 @@
 @section('content')
 <ul> 
     <li>User ID: {{$user->id}}</li> 
-    <p></p>
+    <li>Name: {{$user->name}}</li>
+    <li>Email: {{$user->email}}</li>
+    <li>Password: {{$user->password}}</li>
 </ul>
 @endsection

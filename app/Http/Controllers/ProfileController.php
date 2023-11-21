@@ -28,7 +28,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view ('users.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:30|min:2',
+            'email' => 'required|max:255',
+            'email_verified_at' => 'required',
+            'password' => 'required|min:1'
+
+        ]);
+
+        dd($validatedData);
     }
 
     /**
