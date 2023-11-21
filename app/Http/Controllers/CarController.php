@@ -34,6 +34,14 @@ class CarController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'manufacture' => 'required|max:255',
+            'model' => 'required|max:255',
+            'year' => 'required|max:4|min:4'
+
+        ]);
+
+        dd($validatedData);
     }
 
     /**

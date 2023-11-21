@@ -10,6 +10,7 @@
         <li>Manufacture: <input type="text" name="manufacture"/></li>
         <li>Model: <input type="text" name="model"/></li>
         <li>Year: <input type="text" name="year"/></li>
+        <input type="submit" value="submit"/>
     </ul>
     <a href="{{route('cars.index')}}">Cancel</a>
 </form>
