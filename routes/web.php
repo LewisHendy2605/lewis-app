@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ReviewController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +27,11 @@ Route::get('/reviews', [ReviewController::class, 'index']);
 
 Route::get('/reviews/{id}', [ReviewController::class, 'show'])
 ->name('reviews.show');
+
+Route::get('/users', [ProfileController::class, 'index']);
+
+Route::get('/users/{id}', [ProfileController::class, 'show'])
+->name('users.show');
 
 
 Route::get('/', function () {
