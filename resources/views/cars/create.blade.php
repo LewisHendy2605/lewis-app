@@ -7,9 +7,12 @@
 <form method="POST" action = "{{route('cars.store')}}">
     @csrf
     <ul>     
-        <li>Manufacture: <input type="text" name="manufacture"/></li>
-        <li>Model: <input type="text" name="model"/></li>
-        <li>Year: <input type="text" name="year"/></li>
+        <li>Manufacture: <input type="text" name="manufacture"
+            value="{{ old('manufacture') }}"/></li>
+        <li>Model: <input type="text" name="model"
+            value="{{ old('model') }}"/></li>
+        <li>Year: <input type="text" name="year"
+            value="{{ old('year') }}"/></li>
         <input type="submit" value="submit"/>
     </ul>
     <a href="{{route('cars.index')}}">Cancel</a>
