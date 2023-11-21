@@ -4,9 +4,9 @@
 
 @section('content')
 <ul> 
-    <li>Car ID: {{$car->id}}</li> 
-    <li>Car Model: {{$car->model}}</li>   
-    <li>Car Manufacture: {{$car->manufacture}}</li>
-    <li>Car Year: {{$car->year}}</li>
+    <li>ID: {{$car->id}}</li> 
+    <li>Manufacture: {{$car->manufacture}}</li>
+    <li>Model: {{$car->model}}</li>   
+    <li>Year: {{$car->year}}</li>
 </ul>
 @endsection
