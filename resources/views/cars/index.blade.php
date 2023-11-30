@@ -3,6 +3,7 @@
 @section('title', 'Cars')
 
 @section('content')
+    <p><a href="{{ route('home')}}">Home</a></p>
     <p> {{$cars->count() }} cars</p>
     <p><a href="{{ route('cars.create')}}">Create a Car</a></p>
     <ul> 
