@@ -39,7 +39,15 @@ class CarController extends Controller
 
         ]);
 
-        dd($validatedData);
+        $a = new Car;
+        $a->manufacture = $validatedData['manufacture'];
+        $a->model = $validatedData['model'];
+        $a->year = $validatedData['year'];
+        $a->save();
+
+        session()->flash('message', 'Car was created');
+
+        return redirect()->route('cars.index');
     }
 
     /**

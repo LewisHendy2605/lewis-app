@@ -3,7 +3,7 @@
 @section('title', 'Reviews')
 
 @section('content')
-    <p> Reviews </p>
+    <p> Reviews,  {{$reviews->count()}} reviews</p>
     <p><a href="{{ route('reviews.create')}}">Create a Review</a></p>
     <ul> 
         @foreach ($reviews as $review)

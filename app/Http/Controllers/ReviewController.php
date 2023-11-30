@@ -37,7 +37,16 @@ class ReviewController extends Controller
 
         ]);
 
-        dd($validatedData);
+        $a = new Review;
+        $a->stars = $validatedData['stars'];
+        $a->comment = $validatedData['comment'];
+        $a->car_id = $validatedData['car_id'];
+        $a->user_id = $validatedData['user_id'];
+        $a->save();
+
+        session()->flash('message', 'Review was created');
+
+        return redirect()->route('reviews.index');
     }
 
     /**

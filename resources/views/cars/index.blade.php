@@ -3,6 +3,7 @@
 @section('title', 'Cars')
 
 @section('content')
+    <p>{{$cars->count()}} cars</p>
     <p><a href="{{ route('cars.create')}}">Create a Car</a></p>
     <ul> 
         @foreach ($cars as $car)
