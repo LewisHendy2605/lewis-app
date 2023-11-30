@@ -11,10 +11,22 @@
             value="{{ old('stars') }}"/></li>
         <li>Review: <input type="text" name="comment"
             value="{{ old('comment') }}"/></li>
-        <li>CarID: <input type="text" name="car_id"
-            value="{{ old('car_id') }}"/></li>
-        <li>UserID: <input type="text" name="user_id"
-            value="{{ old('car_id') }}"/></li>
+        <li>Car: <select name="car_id">
+            @foreach ($cars as $car)
+                <option value="{{ $car->id }}">
+                {{ $car->manufacture }}, {{ $car->model }}, {{ $car->year }}
+                </option>
+            @endforeach
+        </select></li>
+        <li>User: <select name="user_id">
+            @foreach ($users as $user)
+                <option value="{{ $user->id }}">
+                    {{ $user->name }}
+                </option>
+            @endforeach
+        </select></li>
+        
+        
         <input type="submit" value="submit"/>
     </ul>
     <a href="{{route('reviews.index')}}">Cancel</a>

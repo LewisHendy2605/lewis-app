@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
+use App\Models\User;
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -21,7 +23,10 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        return view('reviews.create');
+        $users = User::orderBy('name', 'asc')->get();
+        $cars = Car::orderBy('manufacture', 'asc')->get();
+
+        return view('reviews.create', ['cars' => $cars, 'users' => $users]);
     }
 
     /**

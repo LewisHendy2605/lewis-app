@@ -13,6 +13,7 @@
             value="{{ old('model') }}"/></li>
         <li>Year: <input type="text" name="year"
             value="{{ old('year') }}"/></li>
+        
         <input type="submit" value="submit"/>
     </ul>
     <a href="{{route('cars.index')}}">Cancel</a>
