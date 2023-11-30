@@ -13,15 +13,21 @@
             value="{{ old('comment') }}"/></li>
         <li>Car: <select name="car_id">
             @foreach ($cars as $car)
-                <option value="{{ $car->id }}">
-                {{ $car->manufacture }}, {{ $car->model }}, {{ $car->year }}
+                <option value="{{ $car->id }}"
+                    @if ($car->id == old('car_id'))
+                        selected="selected"
+                    @endif
+                >{{ $car->manufacture }}, {{ $car->model }}, {{ $car->year }}
                 </option>
             @endforeach
         </select></li>
         <li>User: <select name="user_id">
             @foreach ($users as $user)
-                <option value="{{ $user->id }}">
-                    {{ $user->name }}
+                <option value="{{ $user->id }}"
+                    @if ($user->id == old('user_id'))
+                        selected="selected"
+                    @endif
+                >{{ $user->name }}
                 </option>
             @endforeach
         </select></li>
