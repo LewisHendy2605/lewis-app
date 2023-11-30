@@ -23,8 +23,7 @@ Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create'
 
 Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
 
-Route::get('/cars/{id}', [CarController::class, 'show'])
-->name('cars.show');
+Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 
 Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
 
