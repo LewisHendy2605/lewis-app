@@ -13,7 +13,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        return view('cars.index');
+        $cars = Car::all();
+        return view('cars.index', ['cars' => $cars]);
     }
 
     /**
@@ -21,7 +22,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        $cars = Car::all();
+        $cars = Car::orderBy('manufacture', 'asc')->get();
 
         return view('cars.create', ['cars' => $cars]);
     }
@@ -82,5 +83,9 @@ class CarController extends Controller
     public function destroy(string $id)
     {
         //
+        $car = Car::findorfail($id);
+        $car->delete();
+
+        return redirect()->route('cars.index')->with('message', 'Car was deleted');
     }
 }

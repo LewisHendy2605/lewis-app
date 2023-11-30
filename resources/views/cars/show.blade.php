@@ -9,4 +9,15 @@
     <li>Model: {{$car->model}}</li>   
     <li>Year: {{$car->year}}</li>
 </ul>
+
+<form method="POST"
+    action="{{ route('cars.destroy', ['id' => $car->id]) }}">
+    @csrf 
+    @method('DELETE')
+    <button type="submit">Delete</button>
+</form>
+
+
+
+<p><a href="{{ route('cars.index') }}">Back</a></p>
 @endsection
