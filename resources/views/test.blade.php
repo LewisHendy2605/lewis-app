@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>HomePage</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -38,7 +38,7 @@
 
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
 
-                    <div class="ml-6 text-center text-sm text-gray-700 dark:text-gray-600 sm:text-right sm:ml-6">
+                    <div class="mt-6 text-center text-sm text-gray-700 dark:text-gray-600 sm:text-right sm:ml-6">
                         Lewis' Website
                     </div>
                 </div>
