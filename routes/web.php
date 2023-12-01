@@ -54,7 +54,6 @@ Route::get('/users/{id}', [ProfileController::class, 'show'])
 
 
 Route::get('/', function () {
-    #return view('test', ['name' => 'Brian']);
     return view('test');
 })->name('home');
 

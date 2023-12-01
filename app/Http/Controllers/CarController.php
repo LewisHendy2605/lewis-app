@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Http\Controllers\Controller;
 
 
 class CarController extends Controller
@@ -13,7 +14,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::orderBy('manufacture', 'asc')->get();
         return view('cars.index', ['cars' => $cars]);
     }
 
@@ -81,10 +82,10 @@ class CarController extends Controller
      */
     public function destroy(string $id)
     {
-        //
         $car = Car::findorfail($id);
         $car->delete();
 
         return redirect()->route('cars.index')->with('message', 'Car was deleted');
     }
+
 }
