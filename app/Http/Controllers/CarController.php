@@ -38,7 +38,7 @@ class CarController extends Controller
         $validatedData = $request->validate([
             'manufacture' => 'required|max:255',
             'model' => 'required|max:255',
-            'year' => 'required|max:4|min:4'
+            'year' => 'integer|max:2023|min:1950'
 
         ]);
 
