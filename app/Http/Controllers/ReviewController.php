@@ -15,7 +15,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::all();
+        $reviews = Review::orderBy('car_id', 'asc')->get();
         return view('reviews.index', ['reviews' => $reviews]);
     }
 

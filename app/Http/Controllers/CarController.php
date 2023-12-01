@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Review;
 use App\Http\Controllers\Controller;
 
 
@@ -37,7 +38,7 @@ class CarController extends Controller
         $validatedData = $request->validate([
             'manufacture' => 'required|max:255', 
             'model' => 'required|max:255',
-            'year' => 'integer|max:2023|min:1950'
+            'year' => 'required|integer|max:2023|min:1950'
 
         ]);
 
@@ -58,7 +59,10 @@ class CarController extends Controller
     public function show(string $id)
     {
         $car = $this->getCar($id);
-        return view('cars.show', ['car' => $car]);
+
+        $reviews = Review::get();
+
+        return view('cars.show', ['car' => $car, 'reviews' => $reviews]);
     }
 
     /**

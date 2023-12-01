@@ -14,10 +14,25 @@
     action="{{ route('cars.destroy', ['id' => $car->id]) }}">
     @csrf 
     @method('DELETE')
-    <button type="submit">Delete</button>
+    <button type="submit">Delete Car</button>
 </form>
 
+<h2>Reviews for car</h2>
+
+<ul> 
+    @foreach ($reviews as $review)
+        @if ($review->car_id == $car->id)
+            <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >
+                 Review ID: {{$review->id}}</a></li>   
+            <li>Stars: {{$review->stars}}</li>
+            <li>Comment: {{$review->comment}}</li> 
+            <li>Car ID: {{$review->car_id}}</li>
+            <li>User ID: {{$review->user_id}}</li>
+            <p></p>
+        @endif
+    @endforeach
+</ul>
 
 
-<p><a href="{{ route('cars.index') }}">Back</a></p>
+<h2><a href="{{ route('cars.index') }}">Back</a></h2>
 @endsection
