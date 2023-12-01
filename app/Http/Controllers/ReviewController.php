@@ -6,6 +6,7 @@ use App\Models\Review;
 use App\Models\User;
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ReviewController extends Controller
 {
@@ -38,7 +39,7 @@ class ReviewController extends Controller
             'stars' => 'required|integer|max:5|min:1',
             'comment' => 'required|max:255',
             'car_id' => 'required|integer|max:60|min:1',
-            'user_id' => 'required|integer|max:50|min:1'
+            'user_id' => ['required', 'integer', 'max:50', 'min:1'],
 
         ]);
 

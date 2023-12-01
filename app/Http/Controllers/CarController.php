@@ -14,7 +14,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::orderBy('manufacture', 'asc')->get();
+        $cars = $this->getOrdered();
+
         return view('cars.index', ['cars' => $cars]);
     }
 
@@ -23,7 +24,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        $cars = Car::orderBy('manufacture', 'asc')->get();
+        $cars = $this->getOrdered();
 
         return view('cars.create', ['cars' => $cars]);
     }
@@ -57,7 +58,7 @@ class CarController extends Controller
      */
     public function show(string $id)
     {
-        $car = Car::findorfail($id);
+        $car = $this->getCar($id);
         return view('cars.show', ['car' => $car]);
     }
 
@@ -82,10 +83,24 @@ class CarController extends Controller
      */
     public function destroy(string $id)
     {
-        $car = Car::findorfail($id);
+        $car = $this->getCar($id);
         $car->delete();
 
         return redirect()->route('cars.index')->with('message', 'Car was deleted');
+    }
+
+    public function getCar(string $id)
+    {
+        $car = Car::findorfail($id);
+
+        return $car;
+    }
+
+    public function getOrdered()
+    {
+        $cars = Car::orderBy('manufacture', 'asc')->get();
+
+        return $cars;
     }
 
 }
