@@ -3,9 +3,9 @@
 @section('title', 'Reviews')
 
 @section('content')
-    <p><a href="{{ route('home')}}">Home</a></p>
-    <p>{{$reviews->count()}} reviews</p>
-    <p><a href="{{ route('reviews.create')}}">Create a Review</a></p>
+    <h2><a href="{{ route('home')}}">Home</a></h2>
+    <h3>{{$reviews->count()}} reviews</h3>
+    <h4><a href="{{ route('reviews.create')}}">Create a Review</a></h4>
     <ul> 
         @foreach ($reviews as $review)
         <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >

@@ -3,9 +3,9 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <p><a href="{{ route('cars.index')}}">Cars</a></p>
-    <p><a href="{{ route('reviews.index')}}">Reviews</a></p>
-    <p><a href="{{ route('users.index')}}">Users</a></p>
+    <h2><a href="{{ route('cars.index')}}">Cars</a></h2>
+    <h2><a href="{{ route('reviews.index')}}">Reviews</a></h2>
+    <h2><a href="{{ route('users.index')}}">Users</a></h2>
 
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
