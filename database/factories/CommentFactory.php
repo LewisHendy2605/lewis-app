@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
@@ -16,9 +17,11 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
+        $users = User::get();
+
+
         return [
-            //
-            'user_id' => fake()->numberBetween(0,50),
+            'user_id' => ($this->faker->randomElement($users))->id,
             'comment' => fake()->text()
         ];
     }

@@ -18,24 +18,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        $cars = Car::factory()->count(50)->create();
-        $users = User::factory()->count(50)->create();
-        $num = count($users);
-
-
-
-        for ($x = 0; $x <= $num; $x++) {
-            $reviews = Review::factory()->for($users->random())
-            ->for($cars->random())
-            ->has(Comment::factory()->count(2))
-            ->create();
-        }
+        $this->call(CarTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(ReviewTableSeeder::class);
+        
        
-        
-
-
-
-        
 
         //$this->call(AnimalTableSeeder::class);
         //$this->call(UserTableSeeder::class);
