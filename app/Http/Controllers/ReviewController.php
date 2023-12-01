@@ -60,8 +60,7 @@ class ReviewController extends Controller
      */
     public function show(string $id)
     {
-        //
-        $review = Review::findOrFail($id);
+        $review = $this->getReview($id);
         return view('reviews.show', ['review' => $review]);
     }
 
@@ -86,9 +85,17 @@ class ReviewController extends Controller
      */
     public function destroy(string $id)
     {
-        $review = Review::findorfail($id);
+        $review = $this->getReview($id);
         $review->delete();
 
         return redirect()->route('reviews.index')->with('message', 'Review was deleted');
     }
+
+    public function getReview(string $id)
+    {
+        $review = Review::findorfail($id);
+
+        return $review;
+    }
+
 }
