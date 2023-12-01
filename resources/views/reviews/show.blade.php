@@ -11,4 +11,15 @@
     <p></p>
 </ul>
 
+<form method="POST"
+    action="{{ route('reviews.destroy', ['id' => $review->id]) }}">
+    @csrf 
+    @method('DELETE')
+    <button type="submit">Delete</button>
+</form>
+
+
+
+<p><a href="{{ route('reviews.index') }}">Back</a></p>
+
 @endsection

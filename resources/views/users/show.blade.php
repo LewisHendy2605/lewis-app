@@ -9,4 +9,7 @@
     <li>Email: {{$user->email}}</li>
     <li>Password: {{$user->password}}</li>
 </ul>
+
+
+<p><a href="{{ route('users.index') }}">Back</a></p>
 @endsection

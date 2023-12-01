@@ -38,6 +38,8 @@ Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store
 Route::get('/reviews/{id}', [ReviewController::class, 'show'])
 ->name('reviews.show');
 
+Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
 
 
 Route::get('/users', [ProfileController::class, 'index'])->name('users.index');

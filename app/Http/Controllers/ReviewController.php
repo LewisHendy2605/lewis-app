@@ -85,6 +85,9 @@ class ReviewController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $review = Review::findorfail($id);
+        $review->delete();
+
+        return redirect()->route('reviews.index')->with('message', 'Review was deleted');
     }
 }
