@@ -19,8 +19,6 @@
                  Review ID: {{$review->id}}</a></li>   
             <li>Stars: {{$review->stars}}</li>
             <li>Comment: {{$review->comment}}</li> 
-            <li><a href="{{route('cars.show', ['id' => $car->id])}}">
-                Car: {{$car->manufacture}}, {{$car->model}}, ID: {{$car->id}}</a></li>
             <li>User ID: {{$review->user_id}}</li>
             <p></p>
         @endif
