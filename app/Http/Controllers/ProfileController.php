@@ -57,7 +57,7 @@ class ProfileController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $reviews = Review::get();
+        $reviews = Review::where('user_id', $id)->get();
         $cars = Car::get();
 
         return view('users.show', ['user' => $user, 'reviews' => $reviews, 'cars' => $cars]);
