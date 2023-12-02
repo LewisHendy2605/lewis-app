@@ -3,6 +3,8 @@
 @section('title', 'Home Page')
 
 @section('content')
+    <livewire:counter/>
+
     <h2><a href="{{ route('cars.index')}}">Cars</a></h2>
     <h2><a href="{{ route('reviews.index')}}">Reviews</a></h2>
     <h2><a href="{{ route('users.index')}}">Users</a></h2>
@@ -24,4 +26,5 @@
             @endif
         </div>
     </body>
+
 @endsection

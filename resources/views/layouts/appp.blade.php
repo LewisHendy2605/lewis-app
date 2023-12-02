@@ -24,5 +24,5 @@
     <div> 
         @yield('content')
     </div>
-    @livewireStyles
+    @livewireScripts
 </body>
