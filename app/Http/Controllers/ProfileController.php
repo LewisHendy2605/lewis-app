@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Models\Review;
 
 class ProfileController extends Controller
 {
@@ -53,9 +54,11 @@ class ProfileController extends Controller
      */
     public function show(string $id)
     {
-        //
         $user = User::findOrFail($id);
-        return view('users.show', ['user' => $user]);
+
+        $reviews = Review::get();
+
+        return view('users.show', ['user' => $user, 'reviews' => $reviews]);
     }
 
 

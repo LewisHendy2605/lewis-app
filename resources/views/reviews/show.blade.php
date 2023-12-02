@@ -7,7 +7,10 @@
     <li>Review ID: {{$review->id}}</li> 
     <li>Stars: {{$review->stars}}</li>   
     <li>Review: {{$review->comment}}</li>
-    <li>CarID: {{$review->car_id}}</li>
+    <li><a href="{{route('cars.show', ['id' => $car->id])}}">
+        Car: {{$car->manufacture}}, {{$car->model}}, ID: {{$car->id}}</a></li>
+    <li><a href="{{route('users.show', ['id' => $user->id])}}">
+        User: {{$user->name}}, ID: {{$user->id}}</a></li>
     <p></p>
 </ul>
 
@@ -17,6 +20,8 @@
     @method('DELETE')
     <button type="submit">Delete</button>
 </form>
+
+
 
 
 

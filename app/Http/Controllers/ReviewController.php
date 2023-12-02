@@ -61,7 +61,11 @@ class ReviewController extends Controller
     public function show(string $id)
     {
         $review = $this->getReview($id);
-        return view('reviews.show', ['review' => $review]);
+
+        $user = User::findorfail($review->user_id);
+        $car = Car::findorfail($review->car_id);
+
+        return view('reviews.show', ['review' => $review, 'user' => $user, 'car' => $car]);
     }
 
     /**
