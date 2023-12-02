@@ -21,19 +21,18 @@
 
 <ul> 
     @foreach ($reviews as $review)
-        @if ($review->car_id == $car->id)
-            <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >
-                 Review ID: {{$review->id}}</a></li>
-            @foreach ($users as $user)
-                @if ($user->id == $review->user_id)
-                    <li><a href="{{route('users.show', ['id' => $user->id])}}">
-                    User: {{$user->name}}, ID: {{$user->id}}</a></li>
-                @endif
-            @endforeach   
-            <li>Stars: {{$review->stars}}</li>
-            <li>Comment: {{$review->comment}}</li>
-            <p></p>
-        @endif
+        <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >
+            Review ID: {{$review->id}}</a></li>
+        @foreach ($users as $user)
+            @if ($user->id == $review->user_id)
+                <li><a href="{{route('users.show', ['id' => $user->id])}}">
+                User: {{$user->name}}, ID: {{$user->id}}</a></li>
+            @endif
+        @endforeach   
+        <li>Stars: {{$review->stars}}</li>
+        <li>Comment: {{$review->comment}}</li>
+        <p></p>
+        
     @endforeach
 </ul>
 

@@ -61,7 +61,8 @@ class CarController extends Controller
     {
         $car = $this->getCar($id);
 
-        $reviews = Review::get();
+        $reviews = Review::where('car_id', $id)->get();
+
         $users = User::get();
 
         return view('cars.show', ['car' => $car, 'reviews' => $reviews, 'users' => $users]);
