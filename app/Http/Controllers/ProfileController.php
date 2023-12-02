@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Review;
+use App\Models\Car;
 
 class ProfileController extends Controller
 {
@@ -57,8 +58,9 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
 
         $reviews = Review::get();
+        $cars = Car::get();
 
-        return view('users.show', ['user' => $user, 'reviews' => $reviews]);
+        return view('users.show', ['user' => $user, 'reviews' => $reviews, 'cars' => $cars]);
     }
 
 
