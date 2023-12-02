@@ -1,4 +1,5 @@
 <head>
+    @livewireStyles
     <title>@yield('title')</title>
 </head>
 
@@ -23,4 +24,5 @@
     <div> 
         @yield('content')
     </div>
+    @livewireStyles
 </body>
