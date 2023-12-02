@@ -25,8 +25,7 @@
             <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >
                  Review ID: {{$review->id}}</a></li>   
             <li>Stars: {{$review->stars}}</li>
-            <li>Comment: {{$review->comment}}</li> 
-            <li>Car ID: {{$review->car_id}}</li>
+            <li>Comment: {{$review->comment}}</li>
             <li>User ID: {{$review->user_id}}</li>
             <p></p>
         @endif
