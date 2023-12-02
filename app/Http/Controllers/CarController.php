@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Review;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 
 
@@ -61,8 +62,9 @@ class CarController extends Controller
         $car = $this->getCar($id);
 
         $reviews = Review::get();
+        $users = User::get();
 
-        return view('cars.show', ['car' => $car, 'reviews' => $reviews]);
+        return view('cars.show', ['car' => $car, 'reviews' => $reviews, 'users' => $users]);
     }
 
     /**
