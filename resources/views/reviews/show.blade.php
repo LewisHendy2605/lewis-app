@@ -25,6 +25,6 @@
 
 
 
-<p><a href="{{ route('reviews.index') }}">Back</a></p>
+<button><a href="{{ route('reviews.index') }}">Back</a></button>
 
 @endsection

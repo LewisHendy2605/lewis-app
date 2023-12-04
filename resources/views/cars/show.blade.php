@@ -3,6 +3,7 @@
 @section('title', 'Car')
 
 @section('content')
+
 <ul> 
     <li>ID: {{$car->id}}</li> 
     <li>Manufacture: {{$car->manufacture}}</li>
@@ -17,7 +18,9 @@
     <button type="submit">Delete Car</button>
 </form>
 
-<h2>Reviews for car</h2>
+<button><a href="{{ route('cars.edit', ['id' => $car->id])}}">Edit Car</a></button>
+
+<h2>Reviews for cr</h2>
 
 <ul> 
     @foreach ($reviews as $review)
@@ -36,7 +39,6 @@
     @endforeach
 </ul>
 
-<h2><a href="{{ route('cars.edit', ['id' => $car->id])}}">Edit</a></h2>
+<button><a href="{{ route('cars.index') }}">Back</a></button>
 
-<h2><a href="{{ route('cars.index') }}">Back</a></h2>
 @endsection

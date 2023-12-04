@@ -35,7 +35,7 @@
         
         <input type="submit" value="submit"/>
     </ul>
-    <a href="{{route('reviews.index')}}">Cancel</a>
+    <button><a href="{{route('reviews.index')}}">Cancel</a></button>
 </form>
 
 @endsection
