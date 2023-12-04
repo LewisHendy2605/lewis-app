@@ -9,6 +9,8 @@ class SearchCars extends Component
 {
     public $carID;
     public $car;
+    public $searchInput = "";
+    public $matchedCars = [];
 
     public function render()
     {
@@ -17,12 +19,44 @@ class SearchCars extends Component
 
     public function mount()
     {
-        $this->car = Car::findorfail(1);
+        $this->matchedCars = Car::orderBy('manufacture', 'asc')->get();
     }
 
-    public function setCar()
+    public function resetArray()
     {
-        $id = $this->carID;
-        $this->car = Car::findorfail($id);
+        $this->matchedCars = Car::orderBy('manufacture', 'asc')->get();
     }
+
+    public function searchforcar()
+    {
+        $cars = Car::get();
+        $this->matchedCars = [];
+
+        if (!empty($this->searchInput)) {
+            foreach ($cars as $car) { //Maybe evaluate all sim scores at the end, get the highest
+                if ($this->isSimilar($car->manufacture, $this->searchInput)) {
+                    array_push($this->matchedCars, $car);
+                } 
+                elseif ($this->isSimilar($car->model, $this->searchInput)) {
+                    array_push($this->matchedCars, $car);
+                }
+                elseif ($car->year == $this->searchInput) {
+                    array_push($this->matchedCars, $car);
+                }
+            }
+        }
+    }
+
+    public function isSimilar(string $one, string $two)
+    {
+        $similar = false;
+        $common = similar_text($one, $two, $percent);
+        if ($percent > 40) {
+            $similar = true;
+        }
+
+        return $similar;
+
+    }
+
 }

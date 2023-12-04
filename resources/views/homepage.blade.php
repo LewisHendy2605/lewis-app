@@ -26,5 +26,4 @@
         <h2><a href="{{ route('users.index')}}">Users</a></h2>
     </div>
 
-    <livewire:searchCars/>
 @endsection
