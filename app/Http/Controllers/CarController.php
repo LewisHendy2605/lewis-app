@@ -75,7 +75,8 @@ class CarController extends Controller
      */
     public function edit(string $id)
     {
-        return view('car.edit', ['id' => $id]);
+        $car = $this->getCar($id);
+        return view('cars.edit', ['id' => $id, 'car' => $car]);
     }
 
     /**

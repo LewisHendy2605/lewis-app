@@ -36,6 +36,7 @@
     @endforeach
 </ul>
 
+<h2><a href="{{ route('cars.edit', ['id' => $car->id])}}">Edit</a></h2>
 
 <h2><a href="{{ route('cars.index') }}">Back</a></h2>
 @endsection
