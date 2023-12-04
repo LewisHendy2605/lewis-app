@@ -3,14 +3,10 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <livewire:counter/>
 
-    <h2><a href="{{ route('cars.index')}}">Cars</a></h2>
-    <h2><a href="{{ route('reviews.index')}}">Reviews</a></h2>
-    <h2><a href="{{ route('users.index')}}">Users</a></h2>
-
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+<body class="antialiased">
+        
+        <div style="text-align: left">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
@@ -27,4 +23,11 @@
         </div>
     </body>
 
+    <div style="text-align: center">
+        <h2><a href="{{ route('cars.index')}}">Cars</a></h2>
+        <h2><a href="{{ route('reviews.index')}}">Reviews</a></h2>
+        <h2><a href="{{ route('users.index')}}">Users</a></h2>
+    </div>
+
+    <livewire:counter/>
 @endsection
