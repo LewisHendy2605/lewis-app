@@ -1,15 +1,17 @@
 <style>
 table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
+    border: 2px solid green;;
+    border-collapse: collapse;
+    padding: 30px;
 }
 th, td {
   padding: 5px;
   text-align: left;
 }
+
 </style>
 <div style="text-align: left">
-    <h2>Search For Cars</h2>
+    <h2>Search For Cars ({{$carsSize}} cars)</h2>
 
     <input type="text" wire:model="searchInput" placeholder="Search for Car....">
 
@@ -17,7 +19,6 @@ th, td {
     <button wire:click="resetArray">Reset</button>
 
 
- 
     @foreach ($matchedCars as $car)
         <h3></h3>
         <table style="width:30%">

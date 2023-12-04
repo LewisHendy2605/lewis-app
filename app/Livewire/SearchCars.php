@@ -9,6 +9,7 @@ class SearchCars extends Component
 {
     public $carID;
     public $car;
+    public $carsSize;
     public $searchInput = "";
     public $matchedCars = [];
 
@@ -20,6 +21,7 @@ class SearchCars extends Component
     public function mount()
     {
         $this->matchedCars = Car::orderBy('manufacture', 'asc')->get();
+        $this->carsSize = $this->matchedCars->count();
     }
 
     public function resetArray()
