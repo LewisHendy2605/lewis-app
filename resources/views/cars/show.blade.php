@@ -4,6 +4,17 @@
 
 @section('content')
 
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+
 <ul> 
     <li>ID: {{$car->id}}</li> 
     <li>Manufacture: {{$car->manufacture}}</li>
@@ -22,22 +33,34 @@
 
 <h2>Reviews for Car</h2>
 
-<ul> 
+<table style="width:50%"> 
     @foreach ($reviews as $review)
-        <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >
-            Review ID: {{$review->id}}</a></li>
-        @foreach ($users as $user)
-            @if ($user->id == $review->user_id)
-                <li><a href="{{route('users.show', ['id' => $user->id])}}">
-                User: {{$user->name}}, ID: {{$user->id}}</a></li>
-            @endif
-        @endforeach   
-        <li>Stars: {{$review->stars}}</li>
-        <li>Comment: {{$review->comment}}</li>
-        <p></p>
-        
+        <tr>
+            <th>Review ID:</th>
+            <td><a href="{{route('reviews.show', ['id' => $review->id])}}" >
+                {{$review->id}}</a></td>
+        </tr>
+        <tr>
+            @foreach ($users as $user)
+                @if ($user->id == $review->user_id)
+                    <th>User:</th>
+                    <td><a href="{{route('users.show', ['id' => $user->id])}}">
+                    {{$user->name}}</a></td>
+                @endif
+            @endforeach 
+        </tr>
+        <tr>
+            <th>Stars:</th>
+            <td>{{$review->stars}}</td>
+        </tr>
+        <tr>
+            <th>Comment:</th>
+            <td>{{$review->comment}}</td>
+        </tr>
     @endforeach
-</ul>
+</table>
+
+<h3></h3>
 
 <button><a href="{{ route('cars.index') }}">Back</a></button>
 
