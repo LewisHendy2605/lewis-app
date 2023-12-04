@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Car;
 use App\Models\Review;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+
 
 
 class CarController extends Controller
@@ -73,7 +75,7 @@ class CarController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('car.edit', ['id' => $id]);
     }
 
     /**
@@ -81,7 +83,24 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $validatedData = $request->validate([
+            'manufacture' => 'required|max:255', 
+            'model' => 'required|max:255',
+            'year' => 'required|integer|max:2023|min:1950'
+
+        ]);
+
+        $affected = DB::table('cars')
+              ->where('id', $id)
+              ->update(['manufacture' => $validatedData['manufacture'],
+              'model' => $validatedData['model'],
+              'year' => $validatedData['year'],
+            ]);
+
+        session()->flash('message', 'Car was updated');
+
+        return redirect()->route('cars.show', ['id' => $id]);
     }
 
     /**
