@@ -32,6 +32,14 @@
             <x-input-error class="mt-2" :messages="$errors->get('year')" />
         </div>
 
+        <div class="flex items-center gap-4">
+            <x-primary-button>{{ __('Save') }}</x-primary-button>
+
+            @if (session('status') === 'cars-updated')
+                <p>{{ __('Saved.') }}</p>
+            @endif
+        </div>
+
     </form>
 
     <button><a href="{{ route('cars.show', ['id' => $car->id])}}">Back</a></button>

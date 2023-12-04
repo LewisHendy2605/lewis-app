@@ -28,5 +28,5 @@
 </ul>
 
 
-<p><a href="{{ route('users.index') }}">Back</a></p>
+<button><a href="{{ route('users.index') }}">Back</a></button>
 @endsection

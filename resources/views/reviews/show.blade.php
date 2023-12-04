@@ -18,7 +18,7 @@
     action="{{ route('reviews.destroy', ['id' => $review->id]) }}">
     @csrf 
     @method('DELETE')
-    <button type="submit">Delete</button>
+    <button type="submit">Delete Review</button>
 </form>
 
 

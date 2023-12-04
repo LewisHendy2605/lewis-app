@@ -20,7 +20,7 @@
 
 <button><a href="{{ route('cars.edit', ['id' => $car->id])}}">Edit Car</a></button>
 
-<h2>Reviews for cr</h2>
+<h2>Reviews for Car</h2>
 
 <ul> 
     @foreach ($reviews as $review)
