@@ -38,6 +38,10 @@ th, td {
                     <th>Comment:</th>
                     <td>{{$review->comment}}</td>
                 </tr>
+                <tr>
+                    <th>Car ID:</th>
+                    <td>{{$review->car_id}}</td>
+                </tr>
             </table>
         @endforeach
     @endif
