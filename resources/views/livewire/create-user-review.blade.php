@@ -1,9 +1,5 @@
-@extends('layouts.appp')
-
-@section('title', 'Create')
-
-@section('content')
-
+<div>
+    <h1>Create a review</h1>
 <form method="POST" action = "{{route('reviews.store')}}">
     @csrf
     <ul>     
@@ -21,22 +17,10 @@
                 </option>
             @endforeach
         </select></li>
-        <li>User: <select name="user_id">
-            @foreach ($users as $user)
-                <option value="{{ $user->id }}"
-                    @if ($user->id == old('user_id'))
-                        selected="selected"
-                    @endif
-                >{{ $user->name }}
-                </option>
-            @endforeach
-        </select></li>
-        
+        <input type="hidden" name="user_id"
+            value="{{ $user->id }}"/>
         
         <input type="submit" value="submit"/>
     </ul>
-    <button><a href="{{route('reviews.index')}}">Cancel</a></button>
 </form>
-
-
-@endsection
+</div>
