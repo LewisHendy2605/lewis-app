@@ -20,9 +20,11 @@
         </div>
     </div>
 
+
     <button><a href="{{ route('profile.edit') }}" >Edit Profile</a></button>
 
     
 
     <livewire:show-user-reviews :id="Auth::id()"/>
+    <livewire:create-user-review :id="Auth::id()"/>
 @endsection
