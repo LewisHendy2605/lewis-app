@@ -46,6 +46,19 @@ Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('revi
 
 
 
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+
+Route::get('/comments/create', [CommentController::class, 'create'])->name('comments.create');
+
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
+Route::get('/comments/{id}', [CommentController::class, 'show'])
+->name('comments.show');
+
+Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('reviews.destroy');
+
+
+
 Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
 
 Route::get('/users/create', [ProfileController::class, 'create'])->name('users.create');

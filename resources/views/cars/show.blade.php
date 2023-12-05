@@ -8,6 +8,7 @@
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  padding: 40px;
 }
 th, td {
   padding: 5px;
@@ -33,8 +34,9 @@ th, td {
 
 <h2>Reviews for Car</h2>
 
-<table style="width:50%"> 
-    @foreach ($reviews as $review)
+@foreach ($reviews as $review)
+    <h3></h3>
+        <table style="width:50%">
         <tr>
             <th>Review ID:</th>
             <td><a href="{{route('reviews.show', ['id' => $review->id])}}" >
@@ -57,8 +59,8 @@ th, td {
             <th>Comment:</th>
             <td>{{$review->comment}}</td>
         </tr>
+        </table>
     @endforeach
-</table>
 
 <h3></h3>
 

@@ -4,16 +4,6 @@
 
 @section('content')
 
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;
-}
-</style>
 
 <ul> 
     <li>ID: {{$car->id}}</li> 
@@ -33,8 +23,9 @@ th, td {
 
 <h2>Reviews for Car</h2>
 
-<table style="width:50%"> 
+ 
     @foreach ($reviews as $review)
+        <table style="width:50%">
         <tr>
             <th>Review ID:</th>
             <td><a href="{{route('reviews.show', ['id' => $review->id])}}" >
@@ -57,8 +48,9 @@ th, td {
             <th>Comment:</th>
             <td>{{$review->comment}}</td>
         </tr>
+        </table>
     @endforeach
-</table>
+
 
 <h3></h3>
 
