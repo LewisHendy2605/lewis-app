@@ -14,4 +14,8 @@
             </div>
         </div>
     </div>
+
+    <button><a href="{{ route('reviews.create', ['idofuser' => Auth::id()])}}">Create new review</a></button>
+
+    <livewire:show-user-reviews :id="Auth::id()"/>
 </x-app-layout>

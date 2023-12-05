@@ -38,8 +38,8 @@ class ReviewController extends Controller
         $validatedData = $request->validate([
             'stars' => 'required|integer|max:5|min:1',
             'comment' => 'required|max:255',
-            'car_id' => 'required|integer|max:60|min:1',
-            'user_id' => ['required', 'integer', 'max:50', 'min:1'],
+            'car_id' => 'required|integer|min:1',
+            'user_id' => ['required', 'integer', 'min:1'],
 
         ]);
 
