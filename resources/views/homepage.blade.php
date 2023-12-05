@@ -23,6 +23,7 @@
         <h2><a href="{{ route('cars.index')}}">Cars</a></h2>
         <h2><a href="{{ route('reviews.index')}}">Reviews</a></h2>
         <h2><a href="{{ route('users.index')}}">Users</a></h2>
+        <h2><a href="{{ route('comments.index')}}">Comments</a></h2>
     </div>
     
 

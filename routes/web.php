@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReviewController;
 
 /*
@@ -55,7 +56,7 @@ Route::post('/comments', [CommentController::class, 'store'])->name('comments.st
 Route::get('/comments/{id}', [CommentController::class, 'show'])
 ->name('comments.show');
 
-Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('reviews.destroy');
+Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
 
 
