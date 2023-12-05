@@ -30,9 +30,9 @@ class ShowUserReviews extends Component
         $this->matchedReviews = Review::where('user_id', $this->user->id)->get();
     }
 
-    public function searchforreview()
+    public function search()
     {
-        $reviews = Review::where('user_id', $this->user->id)->get();
+        $reviews = Review::get();
         $this->matchedReviews = [];
 
         if (!empty($this->searchInput)) {
@@ -49,6 +49,7 @@ class ShowUserReviews extends Component
                 elseif ($review->stars == $this->searchInput) {
                     array_push($this->matchedReviews, $review);
                 }
+                
             }
             sort($this->matchedReviews);
         }

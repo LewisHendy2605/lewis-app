@@ -13,13 +13,13 @@ th, td {
 <div style="text-align: left">
     <h2>Reviews ({{$matchedReviews->count()}} reviews)</h2>
 
-    <input type="text" wire:model="searchInput" placeholder="Search for Car....">
+    <input type="text" wire:model="searchInput" placeholder="Search for Review....">
 
-    <button wire:click="searchforcar">Search</button>
+    <button wire:click="search">Search</button>
     <button wire:click="resetArray">Reset</button>
     <h2></h2>
 
-    @if ($matchedReviews->count() < 1)
+    @if ($matchedReviews->count() < 0)
         <h2>No reviews from {{$user->name}}</h2>
     @else
         @foreach ($matchedReviews as $review)

@@ -20,6 +20,7 @@
         </div>
     </div>
 
+    
+
     <livewire:show-user-reviews :id="Auth::id()"/>
-    <livewire:create-user-review :id="Auth::id()"/>
 @endsection
