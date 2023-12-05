@@ -1,3 +1,15 @@
+<style>
+table, th, td {
+    border: 2px solid green;;
+    border-collapse: collapse;
+    padding: 50px;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+</style>
 <head>
     @livewireStyles
     <title>@yield('title')</title>

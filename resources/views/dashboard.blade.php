@@ -14,9 +14,4 @@
             </div>
         </div>
     </div>
-
-    <button><a href="{{ route('reviews.create') }}">Create new review</a></button>
-
-    <livewire:show-user-reviews :id="Auth::id()"/>
-    <livewire:create-user-review :id="Auth::id()"/>
 </x-app-layout>

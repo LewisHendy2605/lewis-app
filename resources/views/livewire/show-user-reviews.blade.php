@@ -1,17 +1,5 @@
-<style>
-table, th, td {
-    border: 2px solid green;;
-    border-collapse: collapse;
-    padding: 50px;
-}
-th, td {
-  padding: 5px;
-  text-align: left;
-}
-
-</style>
 <div style="text-align: left">
-    <h2>Reviews ({{$matchedReviews->count()}} reviews)</h2>
+   <h2>Reviews ( reviews)</h2>
 
     <input type="text" wire:model="searchInput" placeholder="Search for Review....">
 
@@ -19,9 +7,7 @@ th, td {
     <button wire:click="resetArray">Reset</button>
     <h2></h2>
 
-    @if ($matchedReviews->count() < 0)
-        <h2>No reviews from {{$user->name}}</h2>
-    @else
+
         @foreach ($matchedReviews as $review)
             <h2></h2>
             <table style="width:50%"> 
@@ -44,6 +30,5 @@ th, td {
                 </tr>
             </table>
         @endforeach
-    @endif
 
 </div>

@@ -32,7 +32,7 @@ class ShowUserReviews extends Component
 
     public function search()
     {
-        $reviews = Review::get();
+        $reviews = Review::where('user_id', $this->user->id)->get();
         $this->matchedReviews = [];
 
         if (!empty($this->searchInput)) {

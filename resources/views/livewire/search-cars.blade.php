@@ -1,15 +1,3 @@
-<style>
-table, th, td {
-    border: 2px solid green;;
-    border-collapse: collapse;
-    padding: 30px;
-}
-th, td {
-  padding: 5px;
-  text-align: left;
-}
-
-</style>
 <div style="text-align: left">
     <h2>Search For Cars ({{$carsSize}} cars)</h2>
 
