@@ -11,7 +11,7 @@ th, td {
 
 </style>
 <div style="text-align: left">
-    <h2>Reviews</h2>
+    <h2>Reviews ({{$matchedReviews->count()}} reviews)</h2>
 
     <input type="text" wire:model="searchInput" placeholder="Search for Car....">
 

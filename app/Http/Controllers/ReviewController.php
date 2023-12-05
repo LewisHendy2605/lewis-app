@@ -52,7 +52,8 @@ class ReviewController extends Controller
 
         session()->flash('message', 'Review was created');
 
-        return redirect()->route('reviews.index');
+        return redirect()->route('dashboard');
+        //return redirect()->route('reviews.index');
     }
 
     /**
