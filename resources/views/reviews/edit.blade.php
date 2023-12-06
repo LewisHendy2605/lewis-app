@@ -20,8 +20,7 @@
         </div>
 
         <div>
-            <x-input-label for="user_id" :value="__('User ID')" />
-            <x-text-input id="user_id" name="user_id" type="text" class="mt-1 block w-full" :value="old('user_id', $review->user_id)" required autocomplete="user_id" />
+            <x-text-input id="user_id" name="user_id" type="hidden" class="mt-1 block w-full" :value="old('user_id', $review->user_id)" required autocomplete="user_id" />
             <x-input-error class="mt-2" :messages="$errors->get('user_id')" />
         </div>
 
@@ -32,7 +31,7 @@
         </div>
 
         <div>
-            <x-input-label for="comment" :value="__('Year')" />
+            <x-input-label for="comment" :value="__('Comment')" />
             <x-text-input id="comment" name="comment" type="text" class="mt-1 block w-full" :value="old('comment', $review->comment)" required autofocus autocomplete="comment" />
             <x-input-error class="mt-2" :messages="$errors->get('comment')" />
         </div>
