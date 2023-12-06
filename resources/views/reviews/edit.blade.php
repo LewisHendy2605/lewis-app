@@ -26,9 +26,23 @@
         </div>
 
         <div>
+            <x-input-label for="stars" :value="__('Stars')" />
+            <x-text-input id="stars" name="stars" type="text" class="mt-1 block w-full" :value="old('stars', $review->stars)" required autofocus autocomplete="stars" />
+            <x-input-error class="mt-2" :messages="$errors->get('stars')" />
+        </div>
+
+        <div>
             <x-input-label for="comment" :value="__('Year')" />
             <x-text-input id="comment" name="comment" type="text" class="mt-1 block w-full" :value="old('comment', $review->comment)" required autofocus autocomplete="comment" />
             <x-input-error class="mt-2" :messages="$errors->get('comment')" />
+        </div>
+
+        <div class="flex items-center gap-4">
+            <x-primary-button>{{ __('Save') }}</x-primary-button>
+
+            @if (session('status') === 'reviews-updated')
+                <p>{{ __('Saved.') }}</p>
+            @endif
         </div>
 
     </form>
