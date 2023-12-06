@@ -26,4 +26,32 @@
 
 <button><a href="{{ route('reviews.index') }}">Back</a></button>
 
+<h2>Comments On Review</h2>
+
+@foreach ($comments as $comment)
+    <h3></h3>
+        <table style="width:50%">
+        <tr>
+            <th>Comment ID:</th>
+            <td><a href="{{route('comments.show', ['id' => $comment->id])}}" >
+                {{$comment->id}}</a></td>
+        </tr>
+        <tr>
+            <th>User ID:</th>
+            <td><a href="{{route('users.show', ['id' => $comment->user_id])}}" >
+                {{$comment->user_id}}</a></td>
+        </tr>
+        <tr>
+            <th>Comment:</th>
+            <td>{{$comment->comment}}</td>
+        </tr>
+        <tr>
+            <th>Review ID:</th>
+            <td>{{$comment->review_id}}</td>
+        </tr>
+        </table>
+    @endforeach
+
+<h3></h3>
+
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\Car;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -67,8 +68,10 @@ class ReviewController extends Controller
 
         $user = User::findorfail($review->user_id);
         $car = Car::findorfail($review->car_id);
+        $comments = Comment::where('review_id', $review->id)->get();
 
-        return view('reviews.show', ['review' => $review, 'user' => $user, 'car' => $car]);
+        return view('reviews.show', ['review' => $review, 'user' => $user,
+         'car' => $car, 'comments' => $comments]);
     }
 
     /**
@@ -121,6 +124,13 @@ class ReviewController extends Controller
     public function destroy(string $id)
     {
         $review = $this->getReview($id);
+
+        if (! Gate::allows('delete-review', $review)) {
+            session()->flash('message', 'Unauthorised User - Not review creater');
+
+            return redirect()->route('reviews.show', ['id' => $id]);
+        }
+
         $review->delete();
 
         return redirect()->route('reviews.index')->with('message', 'Review was deleted');
