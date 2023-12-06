@@ -77,6 +77,14 @@ class ReviewController extends Controller
     public function edit(string $id)
     {
         $review = $this->getReview($id);
+
+        if (! Gate::allows('update-review', $review)) {
+            //abort(403);
+            session()->flash('message', 'Unauthorised User - Not review creater');
+
+            return redirect()->route('reviews.show', ['id' => $id]);
+        }
+
         return view('reviews.edit', ['id' => $id, 'review' => $review]);
     }
 
@@ -85,6 +93,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $validatedData = $request->validate([
             'stars' => 'required|integer|max:5|min:1',
             'comment' => 'required|max:255',
