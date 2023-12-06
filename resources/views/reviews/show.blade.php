@@ -21,8 +21,7 @@
     <button type="submit">Delete Review</button>
 </form>
 
-
-
+<button><a href="{{ route('reviews.edit', ['id' => $review->id])}}">Edit Review</a></button>
 
 
 <button><a href="{{ route('reviews.index') }}">Back</a></button>

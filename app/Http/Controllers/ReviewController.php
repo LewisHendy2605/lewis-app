@@ -6,6 +6,7 @@ use App\Models\Review;
 use App\Models\User;
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Gate;
 
@@ -75,7 +76,8 @@ class ReviewController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $review = $this->getReview($id);
+        return view('reviews.edit', ['id' => $id, 'review' => $review]);
     }
 
     /**
@@ -83,7 +85,25 @@ class ReviewController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        $validatedData = $request->validate([
+            'stars' => 'required|integer|max:5|min:1',
+            'comment' => 'required|max:255',
+            'car_id' => 'required|integer|',
+            'user_id' => ['required', 'integer'],
+
+        ]);
+
+        $affected = DB::table('reviews')
+              ->where('id', $id)
+              ->update(['car_id' => $validatedData['car_id'],
+              'user_id' => $validatedData['user_id'],
+              'comment' => $validatedData['comment'],
+            ]);
+
+
+        session()->flash('message', 'Review was updated');
+
+        return redirect()->route('reviews.show', ['id' => $id]);
     }
 
     /**

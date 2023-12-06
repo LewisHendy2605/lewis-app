@@ -1,40 +1,39 @@
 @extends('layouts.appp')
 
-@section('title', 'Create')
+@section('title', 'Edit Review')
 
 @section('content')
 
-    <form method="post" action="{{ route('cars.update', ['id' => $car->id]) }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('reviews.update', ['id' => $review->id]) }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
         <div>
-            <x-input-label for="id" :value="__('id')" />
-            <x-text-input id="id" name="id" type="text" class="mt-1 block w-full" :value="old('id', $car->id)" required autofocus autocomplete="id" />
+            <x-text-input id="id" name="id" type="hidden" class="mt-1 block w-full" :value="old('id', $review->id)" required autofocus autocomplete="id" />
             <x-input-error class="mt-2" :messages="$errors->get('id')" />
         </div>
 
         <div>
-            <x-input-label for="manufacture" :value="__('Manufacture')" />
-            <x-text-input id="manufacture" name="manufacture" type="text" class="mt-1 block w-full" :value="old('manufacture', $car->manufacture)" required autofocus autocomplete="manufacture" />
-            <x-input-error class="mt-2" :messages="$errors->get('manufacture')" />
+            <x-input-label for="car_id" :value="__('Car ID')" />
+            <x-text-input id="car_id" name="car_id" type="text" class="mt-1 block w-full" :value="old('car_id', $review->car_id)" required autofocus autocomplete="car_id" />
+            <x-input-error class="mt-2" :messages="$errors->get('car_id')" />
         </div>
 
         <div>
-            <x-input-label for="model" :value="__('Model')" />
-            <x-text-input id="model" name="model" type="text" class="mt-1 block w-full" :value="old('model', $car->model)" required autocomplete="model" />
-            <x-input-error class="mt-2" :messages="$errors->get('model')" />
+            <x-input-label for="user_id" :value="__('User ID')" />
+            <x-text-input id="user_id" name="user_id" type="text" class="mt-1 block w-full" :value="old('user_id', $review->user_id)" required autocomplete="user_id" />
+            <x-input-error class="mt-2" :messages="$errors->get('user_id')" />
         </div>
 
         <div>
-            <x-input-label for="year" :value="__('Year')" />
-            <x-text-input id="year" name="year" type="text" class="mt-1 block w-full" :value="old('year', $car->year)" required autofocus autocomplete="year" />
-            <x-input-error class="mt-2" :messages="$errors->get('year')" />
+            <x-input-label for="comment" :value="__('Year')" />
+            <x-text-input id="comment" name="comment" type="text" class="mt-1 block w-full" :value="old('comment', $review->comment)" required autofocus autocomplete="comment" />
+            <x-input-error class="mt-2" :messages="$errors->get('comment')" />
         </div>
 
     </form>
 
-    <h2><a href="{{ route('cars.show', ['id' => $car->id])}}">Back</a></h2>
+    <h2><a href="{{ route('reviews.show', ['id' => $review->id])}}">Back</a></h2>
 
 
 

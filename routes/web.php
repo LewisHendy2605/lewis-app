@@ -43,6 +43,10 @@ Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store
 Route::get('/reviews/{id}', [ReviewController::class, 'show'])
 ->name('reviews.show');
 
+Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+
+Route::patch('/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
+
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
 
