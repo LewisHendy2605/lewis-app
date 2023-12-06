@@ -57,8 +57,11 @@ Route::get('/comments/create', [CommentController::class, 'create'])->name('comm
 
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
-Route::get('/comments/{id}', [CommentController::class, 'show'])
-->name('comments.show');
+Route::get('/comments/{id}', [CommentController::class, 'show'])->name('comments.show');
+
+Route::get('/comments/{id}/edit', [CommentController::class, 'edit'])->name('comments.edit');
+
+Route::patch('/comments/{id}', [CommentController::class, 'update'])->name('comments.update');
 
 Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
 

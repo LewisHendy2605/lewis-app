@@ -10,25 +10,25 @@
         <h3></h3>
         <table style="width:45%">
             <tr>
-                <th><a href="{{route('cars.show', ['id' => $comment->id])}}">
+                <th><a href="{{route('comments.show', ['id' => $comment->id])}}">
                 Comment ID::</a></th>
-                <td><a href="{{route('cars.show', ['id' => $comment->id])}}">
+                <td><a href="{{route('comments.show', ['id' => $comment->id])}}">
                 {{$comment->id}}</a></td>
             </tr>
             <tr>
                 <th>Comment:</th>
-                <td><a href="{{route('cars.show', ['id' => $comment->id])}}">
+                <td><a href="{{route('comments.show', ['id' => $comment->id])}}">
                     {{$comment->comment}}</a></td>
             </tr>
             <tr>
                 <th>Review ID:</th>
-                <td><a href="{{route('cars.show', ['id' => $comment->id])}}">
+                <td><a href="{{route('comments.show', ['id' => $comment->id])}}">
                     {{$comment->review_id}}</a></td>
             </tr>
             <tr>
                 <th>User ID:</th>
-                <td><a href="{{route('cars.show', ['id' => $comment->id])}}">
-                    {{$comment->User_id}}</a></td>
+                <td><a href="{{route('comments.show', ['id' => $comment->id])}}">
+                    {{$comment->user_id}}</a></td>
             </tr>
         </table>
     @endforeach
