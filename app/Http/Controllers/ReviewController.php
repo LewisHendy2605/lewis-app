@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 
 class ReviewController extends Controller
 {
@@ -82,7 +83,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
