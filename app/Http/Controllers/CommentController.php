@@ -24,10 +24,9 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $id, string $reviewid, string $carid )
+    public function create()
     {
-        return view('comments.create', ['id' => $id,
-         'carid' => $carid, 'reviewid' => $reviewid]);
+        return view('comments.create', );
     }
 
     /**
