@@ -3,28 +3,32 @@
 @section('title', 'User Dashboard')
 
 @section('content')
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-right">
+        <a href="{{ route('home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+            Home</a>
+    </h2>
 
-    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-    <a href="{{ route('home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-        Home</a>
-     </h2>
-
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+    <div>
+        <!-- Authentication -->
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button :href="route('logout')"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </button>
+        </form>
     </div>
 
 
     <button><a href="{{ route('profile.edit') }}" >Edit Profile</a></button>
 
-    
 
     <livewire:show-user-reviews :id="Auth::id()"/>
     <livewire:create-user-review :id="Auth::id()"/>
+
+    <button :href="route('profile.edit')">
+            {{ __('Profile - Laravel') }}
+    </button>
+
 @endsection
