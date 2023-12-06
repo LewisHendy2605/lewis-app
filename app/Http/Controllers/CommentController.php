@@ -24,12 +24,10 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $id, string $reviewid, string $carid )
     {
-        $reviews = Review::get();
-        $cars = Car::orderBy('manufacture', 'asc')->get();
-
-        return view('reviews.create', ['cars' => $cars, 'reviews' => $reviews]);
+        return view('comments.create', ['id' => $id,
+         'carid' => $carid, 'reviewid' => $reviewid]);
     }
 
     /**

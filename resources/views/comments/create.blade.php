@@ -4,19 +4,22 @@
 
 @section('content')
 
-<form method="POST" action = "{{route('cars.store')}}">
+<form method="POST" action = "{{route('reviews.store')}}">
     @csrf
     <ul>     
-        <li>Manufacture: <input type="text" name="manufacture"
-            value="{{ old('manufacture') }}"/></li>
-        <li>Model: <input type="text" name="model"
-            value="{{ old('model') }}"/></li>
-        <li>Year: <input type="text" name="year"
-            value="{{ old('year') }}"/></li>
+        <li>Comment: <input type="text" name="comment"
+            value="{{ old('comment') }}"/></li>
+        <input type="hidden" name="user_id"
+            value="{{ $id }}"/>
+        <input type="hidden" name="review_id"
+            value="{{ $reviewid }}"/>
+        <input type="hidden" name="car_id"
+            value="{{ $carid }}"/>
+        
         
         <input type="submit" value="submit"/>
     </ul>
-    <a href="{{route('cars.index')}}">Cancel</a>
+    <button><a href="{{route('reviews.index')}}">Cancel</a></button>
 </form>
 
 @endsection
