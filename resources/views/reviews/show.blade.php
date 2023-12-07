@@ -44,7 +44,7 @@
 </div>
 
 
-<h2>Comments On Review</h2>
+<h2>Comments</h2>
 
 @foreach ($comments as $comment)
     <h3></h3>
