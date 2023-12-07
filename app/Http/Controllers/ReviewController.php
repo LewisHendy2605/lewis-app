@@ -83,7 +83,7 @@ class ReviewController extends Controller
 
         if (! Gate::allows('update-review', $review)) {
             //abort(403);
-            session()->flash('message', 'Unauthorised User - Not review creater');
+            session()->flash('message', 'Cannot edit - Not review creater');
 
             return redirect()->route('reviews.show', ['id' => $id]);
         }
@@ -126,7 +126,7 @@ class ReviewController extends Controller
         $review = $this->getReview($id);
 
         if (! Gate::allows('delete-review', $review)) {
-            session()->flash('message', 'Unauthorised User - Not review creater');
+            session()->flash('message', 'Cannot delete - Not review creater');
 
             return redirect()->route('reviews.show', ['id' => $id]);
         }

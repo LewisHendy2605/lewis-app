@@ -38,23 +38,21 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'stars' => 'required|integer|max:5|min:1',
+            'review_id' => 'required|integer',
             'comment' => 'required|max:255',
-            'car_id' => 'required|integer|',
             'user_id' => ['required', 'integer'],
 
         ]);
 
         $a = new Comment;
-        $a->stars = $validatedData['stars'];
+        $a->review_id = $validatedData['review_id'];
         $a->comment = $validatedData['comment'];
-        $a->car_id = $validatedData['car_id'];
         $a->user_id = $validatedData['user_id'];
         $a->save();
 
-        session()->flash('message', 'Review was created');
+        session()->flash('message', 'Comment was created');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('comments.index');
     }
 
     /**
@@ -74,15 +72,15 @@ class CommentController extends Controller
      */
     public function edit(string $id)
     {
-        $review = $this->getReview($id);
+        $comment = $this->getComment($id);
 
-        if (! Gate::allows('update-review', $review)) {
-            session()->flash('message', 'Unauthorised User - Not review creater');
+        if (! Gate::allows('update-comment', $comment)) {
+            session()->flash('message', 'Cannot edit - Not review creater');
 
-            return redirect()->route('reviews.show', ['id' => $id]);
+            return redirect()->route('comments.show', ['id' => $id]);
         }
 
-        return view('reviews.edit', ['id' => $id, 'review' => $review]);
+        return view('comments.edit', ['id' => $id, 'comment' => $comment]);
     }
 
     /**
@@ -116,17 +114,17 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        $review = $this->getReview($id);
+        $comment = $this->getComment($id);
 
-        if (! Gate::allows('delete-review', $review)) {
-            session()->flash('message', 'Unauthorised User - Not review creater');
+        if (! Gate::allows('delete-comment', $comment)) {
+            session()->flash('message', 'Cannot delete - Not comment creater');
 
-            return redirect()->route('reviews.show', ['id' => $id]);
+            return redirect()->route('comments.show', ['id' => $id]);
         }
 
-        $review->delete();
+        $comment->delete();
 
-        return redirect()->route('reviews.index')->with('message', 'Review was deleted');
+        return redirect()->route('comments.index')->with('message', 'Comment was deleted');
     }
 
     public function getComment(string $id)

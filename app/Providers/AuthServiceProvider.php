@@ -49,6 +49,6 @@ class AuthServiceProvider extends ServiceProvider
 
     public function isAdmin($user): bool
     {
-        return ($user->id === 1); // 1 is ID of Admin (hardcoded user) 
+        return ($user->id === 3); // 1 is ID of Admin (hardcoded user) 
     }
 }

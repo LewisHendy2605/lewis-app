@@ -12,16 +12,6 @@
                     value="{{ Auth::id() }}"/></li>  
                 <li>Comment: <input type="text" name="comment"
                     value="{{ old('comment') }}"/></li>
-                <li>Car: <select name="car_id">
-                    @foreach ($cars as $car)
-                        <option value="{{ $car->id }}"
-                            @if ($car->id == old('car_id'))
-                                selected="selected"
-                            @endif
-                        >{{ $car->manufacture }}, {{ $car->model }}, {{ $car->year }}
-                        </option>
-                    @endforeach
-                </select></li>
                 <li>Review: <select name="review_id">
                     @foreach ($reviews as $review)
                         <option value="{{ $review->id }}"
