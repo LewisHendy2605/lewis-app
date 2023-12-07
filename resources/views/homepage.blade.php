@@ -11,7 +11,7 @@
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
                     <a href="{{ route('dashboard') }}">Dashboard</a>
-                    @else
+                @else
                     <h4><a href="{{ route('login') }}">Log in</a></h4>
                     @if (Route::has('register'))
                         <h4><a href="{{ route('register') }}">Register</a></h4>

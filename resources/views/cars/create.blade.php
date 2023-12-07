@@ -16,7 +16,7 @@
         
         <input type="submit" value="submit"/>
     </ul>
-    <a href="{{route('cars.index')}}">Cancel</a>
+    <button><a href="{{route('cars.index')}}">Cancel</a></button>
 </form>
 
 @endsection
