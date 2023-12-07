@@ -26,7 +26,10 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('comments.create', );
+        $cars = Car::get();
+        $reviews = Review::get();
+
+        return view('comments.create', ['cars' => $cars, 'reviews' => $reviews]);
     }
 
     /**

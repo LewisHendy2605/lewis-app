@@ -4,22 +4,49 @@
 
 @section('content')
 
-<form method="POST" action = "{{route('reviews.store')}}">
-    @csrf
-    <ul>     
-        <li>Comment: <input type="text" name="comment"
-            value="{{ old('comment') }}"/></li>
-        <input type="hidden" name="user_id"
-            value="{{ $id }}"/>
-        <input type="hidden" name="review_id"
-            value="{{ $reviewid }}"/>
-        <input type="hidden" name="car_id"
-            value="{{ $carid }}"/>
-        
-        
-        <input type="submit" value="submit"/>
-    </ul>
-    <button><a href="{{route('reviews.index')}}">Cancel</a></button>
-</form>
+    @auth
+        <form method="POST" action = "{{route('comments.store')}}">
+            @csrf
+            <ul>
+                <li>User: <input type="text" name="user_id"
+                    value="{{ Auth::id() }}"/></li>  
+                <li>Comment: <input type="text" name="comment"
+                    value="{{ old('comment') }}"/></li>
+                <li>Car: <select name="car_id">
+                    @foreach ($cars as $car)
+                        <option value="{{ $car->id }}"
+                            @if ($car->id == old('car_id'))
+                                selected="selected"
+                            @endif
+                        >{{ $car->manufacture }}, {{ $car->model }}, {{ $car->year }}
+                        </option>
+                    @endforeach
+                </select></li>
+                <li>Review: <select name="review_id">
+                    @foreach ($reviews as $review)
+                        <option value="{{ $review->id }}"
+                            @if ($review->id == old('review_id'))
+                                selected="selected"
+                            @endif
+                        >{{ $review->id }}
+                        </option>
+                    @endforeach
+                </select></li>
+                <input type="submit" value="submit"/>
+            </ul>
+            <button><a href="{{route('comments.index')}}">Cancel</a></button>
+        </form>
+    @else
+        <div style="text-align: center">
+            <h2>You need to login to create a comment</h2>
+            <button><a href="{{route('comments.index')}}">Back</a></button>
 
+            @if (Route::has('login'))
+                <h4><a href="{{ route('login') }}">Log in</a></h4>
+                @if (Route::has('register'))
+                    <h4><a href="{{ route('register') }}">Register</a></h4>
+                @endif
+            @endif
+        </div>
+    @endauth
 @endsection
