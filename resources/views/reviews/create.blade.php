@@ -21,16 +21,8 @@
                 </option>
             @endforeach
         </select></li>
-        <li>User: <select name="user_id">
-            @foreach ($users as $user)
-                <option value="{{ $user->id }}"
-                    @if ($user->id == old('user_id'))
-                        selected="selected"
-                    @endif
-                >{{ $user->name }}
-                </option>
-            @endforeach
-        </select></li>
+        <li>User: <input type="text" name="user_id"
+                value="{{ Auth::id() }}"/></li>
         
         
         <input type="submit" value="submit"/>
