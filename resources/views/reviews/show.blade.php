@@ -14,27 +14,34 @@
     <p></p>
 </ul>
 
-<form method="POST"
-    action="{{ route('reviews.destroy', ['id' => $review->id]) }}">
-    @csrf 
-    @method('DELETE')
-    <button type="submit">Delete Review</button>
-</form>
-
-<button><a href="{{ route('reviews.edit', ['id' => $review->id])}}">Edit Review</a></button>
-
 <div><button><a href="{{ route('reviews.index') }}">Back</a></button></div>
 
-@if (Route::has('login'))
-    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-        @auth
+
+<div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+    @auth
+        <button><a href="{{ route('reviews.edit', ['id' => $review->id])}}">Edit Review</a></button>
+        <form method="POST"
+            action="{{ route('reviews.destroy', ['id' => $review->id]) }}">
+            @csrf 
+            @method('DELETE')
+            <button type="submit">Delete Review</button>
+
+            <h3></h3>
+
             <a href="{{ route('comments.create'), }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Add Comment</a>
-        @else
-            <h4>You need to log in to comment on review</h4>
-            
-        @endauth
-    </div>
-@endif
+            <button><a href="{{ route('reviews.edit', ['id' => $review->id])}}">Edit Review</a></button>
+        </form>
+    @else
+        <h4>You need to log in to edit/delete this review and to add a comment</h4>
+        @if (Route::has('login'))
+                <h4><a href="{{ route('login') }}">Log in</a></h4>
+                @if (Route::has('register'))
+                    <h4><a href="{{ route('register') }}">Register</a></h4>
+                @endif
+            @endif
+    @endauth
+</div>
+
 
 <h2>Comments On Review</h2>
 
