@@ -3,6 +3,8 @@
 @section('title', 'Review')
 
 @section('content')
+
+
 <ul> 
     <li>Review ID: {{$review->id}}</li> 
     <li>Stars: {{$review->stars}}</li>   
@@ -16,20 +18,19 @@
 
 <div><button><a href="{{ route('reviews.index') }}">Back</a></button></div>
 
+<br>
 
 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
     @auth
         <button><a href="{{ route('reviews.edit', ['id' => $review->id])}}">Edit Review</a></button>
+        <h3></h3>
         <form method="POST"
             action="{{ route('reviews.destroy', ['id' => $review->id]) }}">
             @csrf 
             @method('DELETE')
             <button type="submit">Delete Review</button>
-
-            <h3></h3>
-
-            <a href="{{ route('comments.create'), }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Add Comment</a>
-            <button><a href="{{ route('reviews.edit', ['id' => $review->id])}}">Edit Review</a></button>
+            <hr>
+            <livewire:create-review-comment :userid="Auth::id()" :reviewid="$review->id"/>
         </form>
     @else
         <h4>You need to log in to edit/delete this review and to add a comment</h4>
