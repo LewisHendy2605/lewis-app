@@ -87,5 +87,7 @@ class ShowUserReviews extends Component
 
             session()->flash('message', 'Review was created');
         }
+
+        $this->resetArray();
     }
 }
