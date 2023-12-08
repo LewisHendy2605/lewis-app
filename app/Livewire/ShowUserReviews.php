@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Review;
 use App\Models\User;
+use App\Models\Car;
 
 class ShowUserReviews extends Component
 {
@@ -13,6 +14,11 @@ class ShowUserReviews extends Component
     public $review;
     public $searchInput = "";
     public $matchedReviews = [];
+    public $carid;
+    public $stars;
+    public $userid;
+    public $cars;
+    public $comment;
 
     public function render()
     {
@@ -22,7 +28,9 @@ class ShowUserReviews extends Component
     public function mount($id)
     {
         $this->user = User::findorfail($id);
+        $this->userid = $id;
         $this->matchedReviews = Review::where('user_id', $id)->get();
+        $this->cars = Car::get();
     }
 
     public function resetArray()
@@ -65,5 +73,19 @@ class ShowUserReviews extends Component
 
         return $similar;
 
+    }
+
+    public function createReview()
+    {
+        if (!empty($this->userid)) {
+            $a = new Review;
+            $a->user_id = $this->userid;
+            $a->car_id =$this->carid;
+            $a->comment = $this->comment;
+            $a->stars = $this->stars;
+            $a->save();
+
+            session()->flash('message', 'Review was created');
+        }
     }
 }
