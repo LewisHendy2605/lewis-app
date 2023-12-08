@@ -20,60 +20,60 @@ use App\Http\Controllers\ReviewController;
 
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 
-Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+Route::get('/cars/create', [CarController::class, 'create'])->middleware(['auth', 'verified'])->name('cars.create');
 
-Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+Route::post('/cars', [CarController::class, 'store'])->middleware(['auth', 'verified'])->name('cars.store');
 
-Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
+Route::get('/cars/{id}', [CarController::class, 'show'])->middleware(['auth', 'verified'])->name('cars.show');
 
-Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
+Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->middleware(['auth', 'verified'])->name('cars.edit');
 
-Route::patch('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
+Route::patch('/cars/{id}', [CarController::class, 'update'])->middleware(['auth', 'verified'])->name('cars.update');
 
-Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
+Route::delete('/cars/{id}', [CarController::class, 'destroy'])->middleware(['auth', 'verified'])->name('cars.destroy');
 
 
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
-Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
+Route::get('/reviews/create', [ReviewController::class, 'create'])->middleware(['auth', 'verified'])->name('reviews.create');
 
-Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::post('/reviews', [ReviewController::class, 'store'])->middleware(['auth', 'verified'])->name('reviews.store');
 
-Route::get('/reviews/{id}', [ReviewController::class, 'show'])
+Route::get('/reviews/{id}', [ReviewController::class, 'show'])->middleware(['auth', 'verified'])
 ->name('reviews.show');
 
-Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->middleware(['auth', 'verified'])->name('reviews.edit');
 
-Route::patch('/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
+Route::patch('/reviews/{id}', [ReviewController::class, 'update'])->middleware(['auth', 'verified'])->name('reviews.update');
 
-Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->middleware(['auth', 'verified'])->name('reviews.destroy');
 
 
 
 Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
 
-Route::get('/comments/create', [CommentController::class, 'create'])->name('comments.create');
+Route::get('/comments/create', [CommentController::class, 'create'])->middleware(['auth', 'verified'])->name('comments.create');
 
-Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::post('/comments', [CommentController::class, 'store'])->middleware(['auth', 'verified'])->name('comments.store');
 
-Route::get('/comments/{id}', [CommentController::class, 'show'])->name('comments.show');
+Route::get('/comments/{id}', [CommentController::class, 'show'])->middleware(['auth', 'verified'])->name('comments.show');
 
-Route::get('/comments/{id}/edit', [CommentController::class, 'edit'])->name('comments.edit');
+Route::get('/comments/{id}/edit', [CommentController::class, 'edit'])->middleware(['auth', 'verified'])->name('comments.edit');
 
-Route::patch('/comments/{id}', [CommentController::class, 'update'])->name('comments.update');
+Route::patch('/comments/{id}', [CommentController::class, 'update'])->middleware(['auth', 'verified'])->name('comments.update');
 
-Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->middleware(['auth', 'verified'])->name('comments.destroy');
 
 
 
-Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
+Route::get('/users', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('users.index');
 
-Route::get('/users/create', [ProfileController::class, 'create'])->name('users.create');
+Route::get('/users/create', [ProfileController::class, 'create'])->middleware(['auth', 'verified'])->name('users.create');
 
-Route::post('/users', [ProfileController::class, 'store'])->name('users.store');
+Route::post('/users', [ProfileController::class, 'store'])->middleware(['auth', 'verified'])->name('users.store');
 
-Route::get('/users/{id}', [ProfileController::class, 'show'])
+Route::get('/users/{id}', [ProfileController::class, 'show'])->middleware(['auth', 'verified'])
 ->name('users.show');
 
 
