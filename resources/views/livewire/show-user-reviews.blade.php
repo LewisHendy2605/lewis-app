@@ -31,4 +31,6 @@
             </table>
         @endforeach
 
+        <livewire:create-user-review :id="$user->id"/>
+
 </div>

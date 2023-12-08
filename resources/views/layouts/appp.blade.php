@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <style>
 table, th, td {
     border: 2px solid green;;
@@ -38,3 +39,4 @@ th, td {
     </div>
     @livewireScripts
 </body>
+</html>

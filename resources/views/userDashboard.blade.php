@@ -25,7 +25,7 @@
 
 
     <livewire:show-user-reviews :id="Auth::id()"/>
-    <livewire:create-user-review :id="Auth::id()"/>
+    
 
     <button :href="route('profile.edit')">
             {{ __('Profile - Laravel') }}

@@ -28,7 +28,12 @@
         <h2><a href="{{ route('reviews.index')}}">Reviews</a></h2>
         <h2><a href="{{ route('users.index')}}">Users</a></h2>
         <h2><a href="{{ route('comments.index')}}">Comments</a></h2>
-    </div>
-    
 
-@endsection
+    </div>
+
+    <img src="pic_trulli.jpg" alt="Trulli" width="500" height="333"/>
+    <img src="{{ asset('pic_trulli.jpg') }}" alt="tag"/>
+    {!! Html::image('pic_trulli.jpg') !!}
+    
+    
+    @endsection
