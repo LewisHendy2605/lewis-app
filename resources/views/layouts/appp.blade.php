@@ -19,6 +19,22 @@ th, td {
 <body> 
     <h1>@yield('title')</h1>
 
+    <button><a href="{{ route('cars.index')}}">Cars</a></button>
+    <button><a href="{{ route('reviews.index')}}">Reviews</a></button>
+    <button><a href="{{ route('users.index')}}">Users</a></button>
+    <button><a href="{{ route('comments.index')}}">Comments</a></button>
+
+    @if (Route::has('login'))
+        @auth
+            <button><a href="{{ route('dashboard') }}">Dashboard</a></button>
+        @else
+            <button><h4><a href="{{ route('login') }}">Log in</a></button>
+            @if (Route::has('register'))
+                <button><h4><a href="{{ route('register') }}">Register</a></h4></button>
+            @endif
+        @endauth
+    @endif
+
     @if ($errors->any())
         <div>
             Errors:
