@@ -21,11 +21,13 @@ th, td {
 
     <button><h4><a href="{{ route('cars.index')}}">Cars</a></h4></button>
     <button><h4><a href="{{ route('reviews.index')}}">Reviews</a></h4></button>
-    
+
     <button><h4><a href="{{ route('comments.index')}}">Comments</a></h4></button>
 
-    <button><h4><a href="{{ route('users.index')}}">Users</a></h4></button>
-
+    @can('admin')
+        <button><h4><a href="{{ route('users.index')}}">Users</a></h4></button>
+    @endcan
+    
     @if (Route::has('login'))
         @auth
             <button><a href="{{ route('dashboard') }}">Dashboard</a></button>

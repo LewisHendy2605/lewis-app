@@ -8,6 +8,10 @@
             Home</a>
     </h2>
 
+    <ul> 
+        <li>User ID: {{Auth::id()}}</li>
+    </ul>
+
     <div>
         <!-- Authentication -->
         <form method="POST" action="{{ route('logout') }}">

@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Review;
 use App\Models\Comment;
 use Illuminate\View\View;
+use Illuminate\Auth\Access\Response;
 
 
 class AuthServiceProvider extends ServiceProvider
@@ -48,13 +49,15 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('admin', function ($user) {
-            return ($this->isadmin($user)); 
+            return ($user->role === 'admin')
+                         ? Response::allow()
+                         : Response::deny('You must be an administrator.'); 
         });
     
     }
 
     public function isAdmin($user): bool
     {
-        return ($user->id === 3); // 1 is ID of Admin (hardcoded user) 
+        return ($user->role === 3); // 1 is ID of Admin (hardcoded user) 
     }
 }
