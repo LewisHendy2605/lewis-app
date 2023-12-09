@@ -20,7 +20,7 @@ class CommentFactory extends Factory
         $users = User::get();
 
         $com = ["I agree", "Defintly", "I dont think your right", "Brooo a GT86 is wayyy better",
-         "This dude knows his stuff", "Ferrari"];
+         "This dude knows his stuff"];
 
 
         return [

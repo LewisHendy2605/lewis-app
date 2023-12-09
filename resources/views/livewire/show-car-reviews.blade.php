@@ -1,4 +1,12 @@
 <div>
+
+<h3>Add a review</h3>
+    <li>Stars: <input type="text" wire:model="stars"/></li>
+    <li>Comment: <input type="text" wire:model="comment"/></li>
+    <button wire:click="createReview">Post</button>
+
+<br>
+
 <h2>Reviews for Car</h2>
 
 @foreach ($reviews as $review)

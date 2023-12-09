@@ -39,6 +39,12 @@ class ShowReviewComments extends Component
         $this->comments = Comment::where('review_id', $this->reviewid)->get();
     }
 
+    public function resetAll()
+    {
+        $this->resetArray();
+        $this->comment = null;
+    }
+
     public function createComment()
     {
         if (!empty($this->comment)) {
@@ -48,7 +54,7 @@ class ShowReviewComments extends Component
             $a->comment = $this->comment;
             $a->save();
 
-            $this->resetArray();
+            $this->resetAll();
 
             session()->flash('message', 'Comment was created');
         }
