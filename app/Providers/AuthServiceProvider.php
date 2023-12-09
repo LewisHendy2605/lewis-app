@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Comment;
+use Illuminate\View\View;
 
 
 class AuthServiceProvider extends ServiceProvider
@@ -43,6 +45,10 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('delete-comment', function (User $user, Comment $comment) {
             return (($user->id === $comment->user_id) 
             || ($this->isadmin($user)));
+        });
+
+        Gate::define('admin', function ($user) {
+            return ($this->isadmin($user)); 
         });
     
     }

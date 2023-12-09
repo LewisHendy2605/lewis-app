@@ -67,7 +67,7 @@ Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->middlewa
 
 
 
-Route::get('/users', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('users.index');
+Route::get('/users', [ProfileController::class, 'index'])->middleware(['auth', 'can:admin'])->name('users.index');
 
 Route::get('/users/create', [ProfileController::class, 'create'])->middleware(['auth', 'verified'])->name('users.create');
 
