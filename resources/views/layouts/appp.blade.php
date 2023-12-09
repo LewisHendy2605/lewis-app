@@ -32,7 +32,7 @@ th, td {
 
     @if (Route::has('login'))
         @auth
-            <button><a href="{{ route('dashboard') }}">Dashboard</a></button>
+            <button><h4><a href="{{ route('dashboard') }}">Dashboard</a></h4></button>
         @else
             <button><h4><a href="{{ route('login') }}">Log in</a></button>
             @if (Route::has('register'))
