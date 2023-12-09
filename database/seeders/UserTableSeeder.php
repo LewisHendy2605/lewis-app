@@ -24,6 +24,15 @@ class UserTableSeeder extends Seeder
         $admin->remember_token = Str::random(10);
         $admin->save();
 
+        $testmoderator = new User;
+        $testmoderator->name = 'James Moderator';
+        $testmoderator->email = 'jamesm@gmail.com';
+        $testmoderator->email_verified_at = now();
+        $testmoderator->password = '123';
+        $testmoderator->role = 'moderator';
+        $testmoderator->remember_token = Str::random(10);
+        $testmoderator->save();
+
         $testuser = new User;
         $testuser->name = 'James Stevens';
         $testuser->email = 'jamesstevens@gmail.com';

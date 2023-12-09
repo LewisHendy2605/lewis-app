@@ -53,11 +53,22 @@ class AuthServiceProvider extends ServiceProvider
                          ? Response::allow()
                          : Response::deny('You must be an administrator.'); 
         });
+
+        Gate::define('moderator', function ($user) {
+            return (($user->role === 'moderator') || ($user->role === 'admin'))
+                         ? Response::allow()
+                         : Response::deny('You must be an moderator.'); 
+        });
     
     }
 
     public function isAdmin($user): bool
     {
-        return ($user->role === 3); // 1 is ID of Admin (hardcoded user) 
+        return ($user->role === 'admin');  
+    }
+
+    public function isModerator($user): bool
+    {
+        return ($user->role === 'moderator');  
     }
 }

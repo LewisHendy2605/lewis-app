@@ -51,7 +51,7 @@ Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->middleware
 
 
 
-Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::get('/comments', [CommentController::class, 'index'])->middleware(['auth', 'can:moderator'])->name('comments.index');
 
 Route::get('/comments/create', [CommentController::class, 'create'])->middleware(['auth', 'verified'])->name('comments.create');
 
