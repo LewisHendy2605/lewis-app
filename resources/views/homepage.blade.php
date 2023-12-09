@@ -1,6 +1,6 @@
 @extends('layouts.appp')
 
-@section('title', 'Home Page')
+@section('title', "Lewis' Car Review's")
 
 @section('content')
 

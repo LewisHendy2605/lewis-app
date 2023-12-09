@@ -19,10 +19,12 @@ th, td {
 <body> 
     <h1>@yield('title')</h1>
 
-    <button><a href="{{ route('cars.index')}}">Cars</a></button>
-    <button><a href="{{ route('reviews.index')}}">Reviews</a></button>
-    <button><a href="{{ route('users.index')}}">Users</a></button>
-    <button><a href="{{ route('comments.index')}}">Comments</a></button>
+    <button><h4><a href="{{ route('cars.index')}}">Cars</a></h4></button>
+    <button><h4><a href="{{ route('reviews.index')}}">Reviews</a></h4></button>
+    
+    <button><h4><a href="{{ route('comments.index')}}">Comments</a></h4></button>
+
+    <button><h4><a href="{{ route('users.index')}}">Users</a></h4></button>
 
     @if (Route::has('login'))
         @auth
@@ -34,6 +36,8 @@ th, td {
             @endif
         @endauth
     @endif
+
+    <br>
 
     @if ($errors->any())
         <div>
@@ -50,9 +54,12 @@ th, td {
         <p><b>{{ session('message') }}</b></p>
     @endif
 
+    <br>
+
     <div> 
         @yield('content')
     </div>
+
     @livewireScripts
 </body>
 </html>
