@@ -18,7 +18,7 @@
                 @endif
             @endif
         @endauth
-<   /div>
+    </div>
 
 
     <livewire:searchReviews/>

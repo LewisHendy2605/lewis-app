@@ -23,15 +23,18 @@ th, td {
     <li>Year: {{$car->year}}</li>
 </ul>
 
-<form method="POST"
-    action="{{ route('cars.destroy', ['id' => $car->id]) }}">
-    @csrf 
-    @method('DELETE')
-    <button type="submit">Delete Car</button>
-</form>
-<br>
+@can('admin')
+    <form method="POST"
+        action="{{ route('cars.destroy', ['id' => $car->id]) }}">
+        @csrf 
+        @method('DELETE')
+        <button type="submit">Delete Car</button>
+    </form>
+    <br>
 
-<button><a href="{{ route('cars.edit', ['id' => $car->id])}}">Edit Car</a></button>
+    <button><a href="{{ route('cars.edit', ['id' => $car->id])}}">Edit Car</a></button>
+@endcan
+
 
 <br>
 <br>
