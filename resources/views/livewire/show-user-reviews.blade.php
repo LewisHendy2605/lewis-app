@@ -1,11 +1,4 @@
 <div style="text-align: left">
-   <h2>Reviews ( reviews)</h2>
-
-    <input type="text" wire:model="searchInput" placeholder="Search for Review....">
-
-    <button wire:click="search">Search</button>
-    <button wire:click="resetArray">Reset</button>
-    <h2></h2>
 
     <h3>Add a review</h3>
     <li>Stars: <input type="text" wire:model="stars"/></li>
@@ -21,6 +14,17 @@
             @endforeach
         </select></li>
     <button wire:click="createReview">Post</button>
+
+
+        <h2>Reviews ({{$matchedReviewsCount}} reviews)</h2>
+
+        <input type="text" wire:model="searchInput" placeholder="Search for Review....">
+
+        <button wire:click="search">Search</button>
+        <button wire:click="resetArray">Reset</button>
+        <h2></h2>
+
+
 
         @foreach ($matchedReviews as $review)
             <h2></h2>
@@ -44,6 +48,5 @@
                 </tr>
             </table>
         @endforeach
-
 
 </div>

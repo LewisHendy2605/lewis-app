@@ -11,12 +11,6 @@
             <button><a href="{{ route('reviews.create')}}">Create a Review</a></button>
         @else
             <h4>You need to log in to create a review</h4>
-            @if (Route::has('login'))
-                <h4><a href="{{ route('login') }}">Log in</a></h4>
-                @if (Route::has('register'))
-                    <h4><a href="{{ route('register') }}">Register</a></h4>
-                @endif
-            @endif
         @endauth
     </div>
 

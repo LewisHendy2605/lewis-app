@@ -14,6 +14,7 @@ class ShowUserReviews extends Component
     public $review;
     public $searchInput = "";
     public $matchedReviews = [];
+    public $matchedReviewsCount = 0;
     public $carid;
     public $stars;
     public $userid;
@@ -31,11 +32,21 @@ class ShowUserReviews extends Component
         $this->userid = $id;
         $this->matchedReviews = Review::where('user_id', $id)->get();
         $this->cars = Car::get();
+        $this->matchedReviewsCount = $this->matchedReviews->count();
     }
 
     public function resetArray()
     {
         $this->matchedReviews = Review::where('user_id', $this->user->id)->get();
+    }
+
+    public function resetAll()
+    {
+        $this->resetArray();
+        $this->stars = null;
+        $this->comment = null;
+        $this->carid = null;
+
     }
 
     public function search()
@@ -77,6 +88,8 @@ class ShowUserReviews extends Component
 
     public function createReview()
     {
+
+
         if (!empty($this->userid)) {
             $a = new Review;
             $a->user_id = $this->userid;
@@ -85,9 +98,12 @@ class ShowUserReviews extends Component
             $a->stars = $this->stars;
             $a->save();
 
+            $this->resetAll();
+
             session()->flash('message', 'Review was created');
         }
 
         $this->resetArray();
     }
+
 }
