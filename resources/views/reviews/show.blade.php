@@ -30,7 +30,6 @@
             @method('DELETE')
             <button type="submit">Delete Review</button>
             <hr>
-            <livewire:create-review-comment :userid="Auth::id()" :reviewid="$review->id"/>
         </form>
     @else
         <h4>You need to log in to edit/delete this review and to add a comment</h4>
@@ -43,33 +42,6 @@
     @endauth
 </div>
 
-
-<h2>Comments</h2>
-
-@foreach ($comments as $comment)
-    <h3></h3>
-        <table style="width:50%">
-        <tr>
-            <th>Comment ID:</th>
-            <td><a href="{{route('comments.show', ['id' => $comment->id])}}" >
-                {{$comment->id}}</a></td>
-        </tr>
-        <tr>
-            <th>User ID:</th>
-            <td><a href="{{route('users.show', ['id' => $comment->user_id])}}" >
-                {{$comment->user_id}}</a></td>
-        </tr>
-        <tr>
-            <th>Comment:</th>
-            <td>{{$comment->comment}}</td>
-        </tr>
-        <tr>
-            <th>Review ID:</th>
-            <td>{{$comment->review_id}}</td>
-        </tr>
-        </table>
-    @endforeach
-
-<h3></h3>
+<livewire:show-review-comments :comments="$comments" :userid="Auth::id()" :reviewid="$review->id"/>
 
 @endsection
