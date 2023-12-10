@@ -27,7 +27,7 @@ class CarFactory extends Factory
                     "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010". "2011", "2012", "2013", "2014",
                     "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"];
 
-        $img = ["audi_suv", "toyota_gt_white", "toyota_gt_gray", "toyota_gt_black", "toyota_gt_blue",
+        $img = ["audi_suv", "toyota_gt_white", "nissan_gtr_gray", "toyota_gt_blue",
          "toyota_gt_rear", "toyota_yaris", "toyota_yaris_blue", "toyota_yaris_white",
           "vauxhaul_corsa", "vauxhaul_corsa_blue", "jaguar_etype"];
 
