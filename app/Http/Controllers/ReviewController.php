@@ -18,8 +18,10 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::orderBy('car_id', 'asc')->get();
-        return view('reviews.index', ['reviews' => $reviews]);
+        //$reviews = Review::orderBy('car_id', 'asc')->get();
+        //return view('reviews.index', ['reviews' => $reviews]);
+    
+        return view('reviews.index', ['reviews' => DB::table('reviews')->paginate(5)]);
     }
 
     /**

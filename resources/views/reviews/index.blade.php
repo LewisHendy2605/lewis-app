@@ -14,6 +14,18 @@
         @endauth
     </div>
 
+    <div class="container">
+        <ul> 
+            @foreach ($reviews as $review)
+            <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >
+            Review ID: {{$review->id}}</a></li> 
+            <li>Stars: {{$review->stars}}</li>   
+            <li>Review: {{$review->comment}}</li>
+            <li>CarID: {{$review->car_id}}</li>
+            <p></p>
+            @endforeach
+        </ul>
+    </div>
 
-    <livewire:searchReviews/>
+    {{ $reviews->links() }}
 @endsection
