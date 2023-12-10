@@ -23,7 +23,7 @@ class CarController extends Controller
         //return view('cars.index', ['cars' => $cars]);
 
         return view('cars.index', [
-            'cars' => DB::table('cars')->paginate(5)]);
+            'cars' => DB::table('cars')->simplePaginate(5)]);
     }
 
     /**
