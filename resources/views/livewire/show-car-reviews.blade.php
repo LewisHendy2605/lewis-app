@@ -7,6 +7,18 @@
 
 <br>
 
+<form wire:submit.prevent="createReview">
+    <li>Stars: <input type="text" wire:model="stars"/></li>
+    @error('stars') <span class="error">{{ $message }}</span> @enderror
+ 
+    <li>Comment: <input type="text" wire:model="comment"/></li>
+    @error('comment') <span class="error">{{ $message }}</span> @enderror
+ 
+    <button type="submit">Post</button>
+</form>
+
+
+
 <h2>Reviews for Car</h2>
 
 @foreach ($reviews as $review)

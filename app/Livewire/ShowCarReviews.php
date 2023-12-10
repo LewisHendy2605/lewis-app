@@ -13,6 +13,7 @@ class ShowCarReviews extends Component
     public $searchInput = "";
     public $users;
     public $userid;
+    public $carid;
     public $car;
     public $cars;
     public $reviews;
@@ -30,6 +31,7 @@ class ShowCarReviews extends Component
         $this->reviews = $reviews;
         $this->car = $car;
         $this->userid = $userid;
+        $this->carid = $car->id;
         $this->users = User::get();
         $this->cars = Car::orderBy('manufacture', 'asc')->get();
 
@@ -53,23 +55,50 @@ class ShowCarReviews extends Component
         return (empty($this->userid) || empty($this->stars) || empty($this->comment));
     }
 
+    protected $rules = [
+        'stars' => 'required|integer|max:5|min:1',
+        'comment' => 'required|max:255',
+        'carid' => 'required|integer',
+        'userid' => 'required|integer',
+    ];
+
     public function createReview()
     {
-        if (!($this->allEmpty())) {
-            $a = new Review;
-            $a->user_id = $this->userid;
-            $a->car_id =$this->car->id;
-            $a->comment = $this->comment;
-            $a->stars = $this->stars;
-            $a->save();
 
-            $this->resetAll();
+        $this->validate();
+ 
+        // Execution doesn't reach here if validation fails.
+        $a = new Review;
+        $a->stars = $this->stars;
+        $a->comment = $this->comment;
+        $a->car_id = $this->carid;
+        $a->user_id = $this->userid;
+        $a->save();
 
-            session()->flash('message', 'Review was created');
-        }
-        else 
-        {
+
+        $this->resetAll();
+
+        session()->flash('message', 'Review was created');
+        
+        
             session()->flash('message', 'All fields need to be entered');
-        }
+        
+    }
+
+
+
+ 
+    public function submit()
+    {
+        $this->validate();
+ 
+        // Execution doesn't reach here if validation fails.
+ 
+        Review::create([
+            'user_id' => $this->userid,
+            'car_id' => $this->car->id,
+            'comment' => $this->comment,
+            'stars' => $this->stars,
+        ]);
     }
 }
