@@ -24,6 +24,6 @@
 <button><a href="{{ route('comments.edit', ['id' => $comment->id])}}">Edit Comment</a></button>
 
 
-<button><a href="{{ route('comments.index') }}">Back</a></button>
+<button><a href="{{ route('reviews.show', ['id' => $comment->review_id]) }}">Back</a></button>
 
 @endsection

@@ -52,7 +52,7 @@ class CommentController extends Controller
 
         session()->flash('message', 'Comment was created');
 
-        return redirect()->route('comments.index');
+        return redirect()->route('reviews.show', ['id' => $validatedData['review_id']]);
     }
 
     /**
@@ -123,7 +123,7 @@ class CommentController extends Controller
 
         $comment->delete();
 
-        return redirect()->route('comments.index')->with('message', 'Comment was deleted');
+        return redirect()->route('reviews.show', ['id' => $comment->review_id])->with('message', 'Comment was deleted');
     }
 
     public function getComment(string $id)
