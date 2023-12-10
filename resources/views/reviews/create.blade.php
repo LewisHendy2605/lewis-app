@@ -21,8 +21,7 @@
                 </option>
             @endforeach
         </select></li>
-        <li>User: <input type="text" name="user_id"
-                value="{{ Auth::id() }}"/></li>
+        <input type="hidden" name="user_id" value="{{ Auth::id() }}"/>
         
         
         <input type="submit" value="submit"/>
