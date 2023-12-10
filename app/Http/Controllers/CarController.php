@@ -44,14 +44,20 @@ class CarController extends Controller
         $validatedData = $request->validate([
             'manufacture' => 'required|max:255', 
             'model' => 'required|max:255',
-            'year' => 'required|integer|max:2023|min:1950'
-
+            'year' => 'required|integer|max:2023|min:1950',
+            //'image' => 'required|image',
         ]);
+
+        //dd($request->image);
+
+        //$fileName = time() . '.' . $request->image->extension();
+        //$request->image->storeAs('public/images', $fileName);
 
         $a = new Car;
         $a->manufacture = $validatedData['manufacture'];
         $a->model = $validatedData['model'];
         $a->year = $validatedData['year'];
+        //$a->image = $fileName;
         $a->save();
 
         session()->flash('message', 'Car was created');

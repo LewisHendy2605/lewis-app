@@ -35,7 +35,7 @@ class CarFactory extends Factory
             'manufacture' => $this->faker->randomElement($man),
             'model' => $this->faker->randomElement($mod),
             'year' => $this->faker->randomElement($year),
-            'image_name' => $this->faker->randomElement($img)
+            //'image' => $this->faker->randomElement($img)
         ];
     }
 }

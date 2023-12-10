@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('manufacture');
             $table->string('model');
             $table->string('year');
-            $table->string('image_name');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

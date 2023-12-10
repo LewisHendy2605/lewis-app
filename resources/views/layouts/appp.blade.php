@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<style>
-table, th, td {
-    border: 2px solid green;;
-    border-collapse: collapse;
-    padding: 50px;
-}
-th, td {
-  padding: 5px;
-  text-align: left;
-}
+<style type="text/css">
+    .my-active span{
+        background-color: #5cb85c !important;
+        color: white !important;
+        border-color: #5cb85c !important;
+    }
+    ul.pager>li {
+        display: inline-flex;
+        padding: 5px;
+    }
+    table, th, td {
+        border: 2px solid green;;
+        border-collapse: collapse;
+        padding: 50px;
+    }
+    th, td {
+    padding: 5px;
+    text-align: left;
+    }
 
 </style>
+
+
 <head>
     @livewireStyles
     <title>@yield('title')</title>
@@ -53,6 +64,7 @@ th, td {
             </ul>
         </div>
     @endif
+    
 
     @if (session('message'))
         <p><b>{{ session('message') }}</b></p>

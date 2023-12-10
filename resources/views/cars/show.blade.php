@@ -22,7 +22,8 @@ th, td {
     <li>Model: {{$car->model}}</li>   
     <li>Year: {{$car->year}}</li>
     <img src="{{URL::to('images').'/'.$car->image_name.'.jpg'}}" alt="" width="500" height="333">
-</ul>
+    
+  </ul>
 
 @can('admin')
     <form method="POST"

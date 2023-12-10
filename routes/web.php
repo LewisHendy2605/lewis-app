@@ -82,6 +82,8 @@ Route::get('/', function () {
     return view('homepage');
 })->name('home');
 
+Route::resource('car',CarController::class)->except(['show','edit','update','delete']);
+
 
 Route::get('/dashboard', function () {
     return view('userDashboard');
