@@ -1,12 +1,7 @@
 <div>
 
 <h3>Add a review</h3>
-    <li>Stars: <input type="text" wire:model="stars"/></li>
-    <li>Comment: <input type="text" wire:model="comment"/></li>
-    <button wire:click="createReview">Post</button>
-
-<br>
-
+    
 <form wire:submit.prevent="createReview">
     <li>Stars: <input type="text" wire:model="stars"/></li>
     @error('stars') <span class="error">{{ $message }}</span> @enderror
@@ -17,7 +12,7 @@
     <button type="submit">Post</button>
 </form>
 
-
+<br>
 
 <h2>Reviews for Car</h2>
 

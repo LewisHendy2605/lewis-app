@@ -45,18 +45,25 @@ class ShowReviewComments extends Component
         $this->comment = null;
     }
 
+    protected $rules = [
+        'comment' => 'required|max:255',
+        'reviewid' => 'required|integer',
+        'userid' => 'required|integer',
+    ];
+
     public function createComment()
     {
-        if (!empty($this->comment)) {
-            $a = new Comment;
-            $a->review_id = $this->reviewid;
-            $a->user_id =$this->userid;
-            $a->comment = $this->comment;
-            $a->save();
+        $this->validate();
+        
+        $a = new Comment;
+        $a->review_id = $this->reviewid;
+        $a->user_id =$this->userid;
+        $a->comment = $this->comment;
+        $a->save();
 
-            $this->resetAll();
+        $this->resetAll();
 
-            session()->flash('message', 'Comment was created');
-        }
+        session()->flash('message', 'Comment was created');
+        
     }
 }

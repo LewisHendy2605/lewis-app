@@ -1,8 +1,13 @@
 <div style="text-align: left">
-   <h3>Add a comment</h3>
-    <p>Comment: <input type="text" wire:model="comment"/></p>
-    <button wire:click="createComment">Post</button>
-        
+    <h3>Add a comment</h3>
+    
+    
+    <form wire:submit.prevent="createComment">
+        <li>Comment: <input type="text" wire:model="comment"/></li>
+        @error('comment') <span class="error">{{ $message }}</span> @enderror
+ 
+        <button type="submit">Post</button>
+    </form>
     
     <h3>Comments</h3>
     <br>

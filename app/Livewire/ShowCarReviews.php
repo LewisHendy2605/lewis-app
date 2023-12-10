@@ -85,20 +85,4 @@ class ShowCarReviews extends Component
         
     }
 
-
-
- 
-    public function submit()
-    {
-        $this->validate();
- 
-        // Execution doesn't reach here if validation fails.
- 
-        Review::create([
-            'user_id' => $this->userid,
-            'car_id' => $this->car->id,
-            'comment' => $this->comment,
-            'stars' => $this->stars,
-        ]);
-    }
 }

@@ -89,24 +89,23 @@ class CommentController extends Controller
     public function update(Request $request, string $id)
     {
         $validatedData = $request->validate([
-            'stars' => 'required|integer|max:5|min:1',
             'comment' => 'required|max:255',
-            'car_id' => 'required|integer|',
-            'user_id' => ['required', 'integer'],
+            'review_id' => 'required|integer',
+            'user_id' => 'required|integer',
 
         ]);
 
-        $affected = DB::table('reviews')
+        $affected = DB::table('comments')
               ->where('id', $id)
-              ->update(['car_id' => $validatedData['car_id'],
+              ->update(['review_id' => $validatedData['review_id'],
               'user_id' => $validatedData['user_id'],
               'comment' => $validatedData['comment'],
             ]);
 
 
-        session()->flash('message', 'Review was updated');
+        session()->flash('message', 'Comment was updated');
 
-        return redirect()->route('reviews.show', ['id' => $id]);
+        return redirect()->route('comments.show', ['id' => $id]);
     }
 
     /**
