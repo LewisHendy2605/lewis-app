@@ -5,7 +5,10 @@
 @section('content')
     <h2><a href="{{ route('home')}}">Home</a></h2>
     <h3></h3>
-    <button><a href="{{ route('cars.create')}}">Create a Car</a></button>
+
+    @can('admin')
+        <button><a href="{{ route('cars.create')}}">Create a Car</a></button>
+    @endcan
 
     <div class="container">
         @foreach ($cars as $car)
