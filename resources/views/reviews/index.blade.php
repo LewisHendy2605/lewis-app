@@ -14,18 +14,43 @@
         @endauth
     </div>
 
+
     <div class="container">
-        <ul> 
-            @foreach ($reviews as $review)
-            <li><a href="{{route('reviews.show', ['id' => $review->id])}}" >
-            Review ID: {{$review->id}}</a></li> 
-            <li>Stars: {{$review->stars}}</li>   
-            <li>Review: {{$review->comment}}</li>
-            <li>CarID: {{$review->car_id}}</li>
-            <p></p>
-            @endforeach
-        </ul>
+        @foreach ($reviews as $review)
+        <h3></h3>
+        <table style="width:30%">
+            <tr>
+                <th>Review ID::</th>
+                <td><a href="{{route('reviews.show', ['id' => $review->id])}}">
+                    {{$review->id}}</a></td>
+            </tr>
+            <tr>
+                <th>Stars:</th>
+                <td>{{$review->stars}}</td>
+            </tr>
+            <tr>
+                <th>Review:</th>
+                <td>{{$review->comment}}</td>
+            </tr>
+            <tr>
+                <th>Car ID:</th>
+                <td><a href="{{route('cars.show', ['id' => $review->car_id])}}">
+                    {{$review->car_id}}</a></td>
+            </tr>
+            <tr>
+                @foreach ($cars as $car)
+                    @if ($car->id == $review->car_id)
+                        <th>Car:</th>
+                        <td><a href="{{route('cars.show', ['id' => $review->car_id])}}">
+                        {{$car->manufacture}}, {{$car->model}}</a></td>
+                    @endif
+                @endforeach 
+        </tr>
+        </table>
+        @endforeach
     </div>
+
+    <br>
 
     {{ $reviews->links() }}
 @endsection
