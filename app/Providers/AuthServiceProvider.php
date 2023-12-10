@@ -30,22 +30,22 @@ class AuthServiceProvider extends ServiceProvider
     {
         Gate::define('update-review', function (User $user, Review $review) {
             return (($user->id === $review->user_id) 
-            || ($this->isadmin($user)));
+            || ($this->isAdmin($user)));
         });
 
         Gate::define('delete-review', function (User $user, Review $review) {
             return (($user->id === $review->user_id) 
-            || ($this->isadmin($user)));
+            || ($this->isModerator($user)));
         });
 
         Gate::define('update-comment', function (User $user, Comment $comment) {
             return (($user->id === $comment->user_id) 
-            || ($this->isadmin($user)));
+            || ($this->isAdmin($user)));
         });
 
         Gate::define('delete-comment', function (User $user, Comment $comment) {
             return (($user->id === $comment->user_id) 
-            || ($this->isadmin($user)));
+            || ($this->isModerator($user)));
         });
 
         Gate::define('admin', function ($user) {
@@ -69,6 +69,6 @@ class AuthServiceProvider extends ServiceProvider
 
     public function isModerator($user): bool
     {
-        return ($user->role === 'moderator');  
+        return (($user->role === 'moderator') || $this->isAdmin($user));  
     }
 }

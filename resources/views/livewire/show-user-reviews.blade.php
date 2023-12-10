@@ -1,5 +1,7 @@
 <div style="text-align: left">
 
+    <h3>Create a review</h3>
+
     <form wire:submit.prevent="createReview">
         <li>Stars: <input type="text" wire:model="stars"/></li>
         @error('stars') <span class="error">{{ $message }}</span> @enderror
@@ -16,7 +18,8 @@
                 </select></li>
         @error('carid') <span class="error">{{ $message }}</span> @enderror
 
- 
+        <br>
+
         <button type="submit">Post</button>
     </form>
 

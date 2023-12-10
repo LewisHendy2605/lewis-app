@@ -24,9 +24,11 @@
         </form>
     </div>
 
+    <br>
 
     <button><a href="{{ route('profile.edit') }}" >Edit Profile</a></button>
 
+    <br>
 
     <livewire:show-user-reviews :id="Auth::id()"/>
     
