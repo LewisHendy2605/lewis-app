@@ -1,19 +1,25 @@
 <div style="text-align: left">
 
-    <h3>Add a review</h3>
-    <li>Stars: <input type="text" wire:model="stars"/></li>
-    <li>Comment: <input type="text" wire:model="comment"/></li>
-    <li>Car: <select wire:model="carid">
-        @foreach ($cars as $car)
-            <option value="{{ $car->id }}"
-                @if ($car->id == old('car_id'))
-                    selected="selected"
-                @endif
-                >{{ $car->manufacture }}, {{ $car->model }}, {{ $car->year }}
+    <form wire:submit.prevent="createReview">
+        <li>Stars: <input type="text" wire:model="stars"/></li>
+        @error('stars') <span class="error">{{ $message }}</span> @enderror
+
+        <li>Comment: <input type="text" wire:model="comment"/></li>
+        @error('comment') <span class="error">{{ $message }}</span> @enderror
+
+        <li>Car: <select wire:model="carid">
+            @foreach ($cars as $car)
+                <option value="{{ $car->id }}"
+                    >{{ $car->manufacture }}, {{ $car->model }}, {{ $car->year }}
                 </option>
-            @endforeach
-        </select></li>
-    <button wire:click="createReview">Post</button>
+                @endforeach
+                </select></li>
+        @error('carid') <span class="error">{{ $message }}</span> @enderror
+
+ 
+        <button type="submit">Post</button>
+    </form>
+
 
 
         <h2>Reviews ({{$matchedReviewsCount}} reviews)</h2>

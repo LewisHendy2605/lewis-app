@@ -80,9 +80,6 @@ class ShowCarReviews extends Component
 
         session()->flash('message', 'Review was created');
         
-        
-            session()->flash('message', 'All fields need to be entered');
-        
     }
 
 }

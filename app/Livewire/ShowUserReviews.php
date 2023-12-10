@@ -86,24 +86,27 @@ class ShowUserReviews extends Component
 
     }
 
+    protected $rules = [
+        'stars' => 'required|integer|max:5|min:1',
+        'comment' => 'required|max:255',
+        'carid' => 'required|integer',
+        'userid' => 'required|integer',
+    ];
+
     public function createReview()
     {
+        $this->validate();
 
+        $a = new Review;
+        $a->user_id = $this->userid;
+        $a->car_id =$this->carid;
+        $a->comment = $this->comment;
+        $a->stars = $this->stars;
+        $a->save();
 
-        if (!empty($this->userid)) {
-            $a = new Review;
-            $a->user_id = $this->userid;
-            $a->car_id =$this->carid;
-            $a->comment = $this->comment;
-            $a->stars = $this->stars;
-            $a->save();
+        $this->resetAll();
 
-            $this->resetAll();
-
-            session()->flash('message', 'Review was created');
-        }
-
-        $this->resetArray();
+        session()->flash('message', 'Review was created');
     }
 
 }
