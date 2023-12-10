@@ -116,7 +116,7 @@ class CommentController extends Controller
         $comment = $this->getComment($id);
 
         if (! Gate::allows('delete-comment', $comment)) {
-            session()->flash('message', 'Cannot delete - Not comment creater');
+            session()->flash('message', 'Cannot delete - Not comment creater / moderator');
 
             return redirect()->route('comments.show', ['id' => $id]);
         }

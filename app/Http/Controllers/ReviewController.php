@@ -130,7 +130,7 @@ class ReviewController extends Controller
         $review = $this->getReview($id);
 
         if (! Gate::allows('delete-review', $review)) {
-            session()->flash('message', 'Cannot delete - Not review creater');
+            session()->flash('message', 'Cannot delete - Not review creater / moderator');
 
             return redirect()->route('reviews.show', ['id' => $id]);
         }
