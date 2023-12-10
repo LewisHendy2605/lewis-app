@@ -18,9 +18,12 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = $this->getOrdered();
+        //$cars = $this->getOrdered();
 
-        return view('cars.index', ['cars' => $cars]);
+        //return view('cars.index', ['cars' => $cars]);
+
+        return view('cars.index', [
+            'cars' => DB::table('cars')->paginate(4)]);
     }
 
     /**
