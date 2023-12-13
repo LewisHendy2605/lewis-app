@@ -13,8 +13,7 @@
             value="{{ old('model') }}"/></li>
         <li>Year: <input type="text" name="year"
             value="{{ old('year') }}"/></li>
-        <li>Image: <input type="file" name="image"/>
-        </li>
+        <input type="file" name="image" id="image">
         
         <input type="submit" value="submit"/>
     </ul>

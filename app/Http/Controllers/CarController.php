@@ -8,6 +8,8 @@ use App\Models\Car;
 use App\Models\Review;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
 
 
 
@@ -41,14 +43,14 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'manufacture' => 'required|max:255', 
             'model' => 'required|max:255',
             'year' => 'required|integer|max:2023|min:1950',
-            //'image' => 'required|image',
+            //'image' => 'image',
         ]);
 
-        //dd($request->image);
 
         //$fileName = time() . '.' . $request->image->extension();
         //$request->image->storeAs('public/images', $fileName);
