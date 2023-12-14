@@ -21,7 +21,7 @@ th, td {
     <li>Manufacture: {{$car->manufacture}}</li>
     <li>Model: {{$car->model}}</li>   
     <li>Year: {{$car->year}}</li>
-    <img src="{{URL::to('images').'/'.$car->image_name.'.jpg'}}" alt="" width="500" height="333">
+    <img src="{{URL::to('images').'/'.$car->image.'.jpg'}}" alt="" width="500" height="333">
     
   </ul>
 
